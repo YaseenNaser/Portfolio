@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll; /* Ensures a vertical scrollbar is always visible */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
