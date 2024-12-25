@@ -145,3 +145,47 @@ button:hover {
 #taskList li button:hover {
     background: #c00;
 }
+
+#grades {
+    background: #eef;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+#grades h2 {
+    color: #0078d7;
+}
+
+.grade-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#subjectInput,
+#gradeInput {
+    width: calc(50% - 10px);
+    padding: 0.5rem;
+    margin-right: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#gradeList {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#gradeList li {
+    padding: 0.5rem;
+    background: #fff;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#gradeChart {
+    margin-top: 1rem;
+}
