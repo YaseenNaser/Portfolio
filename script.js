@@ -112,14 +112,3 @@ document.getElementById("contactForm").addEventListener("submit", function (even
         feedback.style.display = "none";
     }, 3000);
 });
-
-// Hide the preloader after the page loads
-window.addEventListener("load", function () {
-    const preloader = document.getElementById("preloader");
-    preloader.classList.add("hidden");
-
-    // Optional: Remove preloader from DOM after animation
-    setTimeout(() => {
-        preloader.remove();
-    }, 500); // Matches the CSS transition duration
-});
