@@ -1,3 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensures the page always fills the viewport */
+}
+
 html {
     overflow-y: scroll; /* Ensures a vertical scrollbar is always visible */
 }
@@ -50,6 +56,11 @@ nav ul li a.active {
 
 
 main {
+    flex-grow: 1; /* Pushes the footer down if content is short */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
     padding: 2rem;
     text-align: center;
 }
@@ -59,7 +70,6 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem 0;
-    margin-top: 2rem;
 }
 
 #portfolio {
@@ -265,7 +275,7 @@ form button:hover {
 
 /* Main container for content */
 .container {
-    flex: 1; /* Make this container grow to fill the available space */
+    flex-grow: 1; /* Make this container grow to fill the available space */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center content vertically if the page is short */
