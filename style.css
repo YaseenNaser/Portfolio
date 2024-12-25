@@ -63,6 +63,10 @@ main {
     align-items: center; /* Center content horizontally within the main section */
     padding: 2rem;
     text-align: center;
+    width: 100%; /* Ensure the main section spans the full width */
+    max-width: 1200px; /* Limit the maximum width to avoid squeezing */
+    margin: 0 auto; /* Center the main content horizontally */
+    box-sizing: border-box; /* Include padding in width calculations */
 }
 
 /* Footer styles */
