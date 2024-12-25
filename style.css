@@ -245,9 +245,9 @@ form button:hover {
 }
 
 nav ul li a.active {
-    color: #0078d7;
+    color: #0078d7; /* Set to a visible color */
     font-weight: bold;
-    border-bottom: 2px solid #0078d7;
+    border-bottom: 2px solid #0078d7; /* Optional for highlighting */
 }
 
 /* Preloader styles */
