@@ -25,9 +25,16 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: white; /* Default color for links */
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a.active {
+    color: #0078d7; /* Active link color */
+    font-weight: bold;
+    border-bottom: 2px solid #0078d7;
 }
 
 main {
@@ -242,10 +249,4 @@ form button:hover {
     margin-top: 1rem;
     font-size: 1rem;
     color: #0078d7;
-}
-
-nav ul li a.active {
-    color: #0078d7; /* Set to a visible color */
-    font-weight: bold;
-    border-bottom: 2px solid #0078d7; /* Optional for highlighting */
 }
