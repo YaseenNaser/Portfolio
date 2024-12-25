@@ -32,7 +32,7 @@ nav ul li a {
 }
 
 nav ul li a.active {
-    color: #0078d7; /* Active link color */
+    color: ##000000; /* Active link color */
     font-weight: bold;
     border-bottom: 2px solid #0078d7;
 }
