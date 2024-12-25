@@ -3,6 +3,9 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body always fills the viewport */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
