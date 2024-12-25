@@ -243,3 +243,9 @@ form button:hover {
     font-size: 1rem;
     color: #0078d7;
 }
+
+nav ul li a.active {
+    color: #0078d7;
+    font-weight: bold;
+    border-bottom: 2px solid #0078d7;
+}
