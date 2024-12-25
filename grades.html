@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="organizer.html">Task Organizer</a></li>
+                <li><a href="grades.html">Grade Tracker</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="grades">
+    <h2>Grade Tracker</h2>
+    <div class="grade-container">
+        <input type="text" id="subjectInput" placeholder="Subject Name">
+        <input type="number" id="gradeInput" placeholder="Grade (%)" min="0" max="100">
+        <button onclick="addGrade()">Add Grade</button>
+        <ul id="gradeList"></ul>
+        <canvas id="gradeChart" width="400" height="200"></canvas>
+    </div>
+</section>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Student Portfolio & Organizer</p>
+    </footer>
+</body>
+</html>
