@@ -19,12 +19,12 @@ body {
     color: #333;
 }
 
+/* Header styles */
 header {
-    background: #0078d7;
+    background-color: #0078d7;
     color: white;
     padding: 1rem 0;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional for a subtle shadow */
 }
 
 nav ul {
@@ -56,15 +56,16 @@ nav ul li a.active {
 
 
 main {
-    flex-grow: 1; /* Pushes the footer down if content is short */
+    flex-grow: 1; /* Allows main to take up remaining space */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centers content vertically */
-    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Center content vertically within the main section */
+    align-items: center; /* Center content horizontally within the main section */
     padding: 2rem;
     text-align: center;
 }
 
+/* Footer styles */
 footer {
     background: #333;
     color: white;
