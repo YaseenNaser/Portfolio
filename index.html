@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+    
 <body>
+    
     <header>
         <nav>
             <ul>
@@ -19,11 +21,14 @@
             </ul>
         </nav>
     </header>
+    
     <main>
+        
         <section id="home">
             <h1>Welcome to My Student Organizer</h1>
             <p>Showcase your projects, track tasks, and stay on top of your grades!</p>
         </section>
+        
         <section id="portfolio">
     <h2>My Portfolio</h2>
     <div class="portfolio-container">
@@ -41,6 +46,7 @@
         </div>
     </div>
 </section>
+        
         <section id="organizer">
     <h2>Task Organizer</h2>
     <div class="task-container">
@@ -49,6 +55,7 @@
         <ul id="taskList"></ul>
     </div>
 </section>
+        
 <section id="grades">
     <h2>Grade Tracker</h2>
     <div class="grade-container">
@@ -57,6 +64,25 @@
         <button onclick="addGrade()">Add Grade</button>
         <ul id="gradeList"></ul>
         <canvas id="gradeChart" width="400" height="200"></canvas>
+    </div>
+</section>
+        
+<section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+        <form id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your Email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="formFeedback" style="display: none;">Thank you! Your message has been received.</p>
     </div>
 </section>
 
