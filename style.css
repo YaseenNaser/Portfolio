@@ -79,3 +79,69 @@ footer {
     color: #555;
 }
 
+#organizer {
+    background: #fef;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+#organizer h2 {
+    color: #d70078;
+}
+
+.task-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#taskInput {
+    width: calc(100% - 90px);
+    padding: 0.5rem;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #d70078;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b00063;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#taskList li {
+    padding: 0.5rem;
+    background: #fff;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#taskList li button {
+    background: #f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+}
+
+#taskList li button:hover {
+    background: #c00;
+}
