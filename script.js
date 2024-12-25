@@ -93,3 +93,22 @@ function updateChart() {
         },
     });
 }
+
+// Handle contact form submission
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Display feedback
+    const feedback = document.getElementById("formFeedback");
+    feedback.style.display = "block";
+
+    // Clear form fields
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+
+    // Hide feedback after a few seconds (optional)
+    setTimeout(() => {
+        feedback.style.display = "none";
+    }, 3000);
+});
