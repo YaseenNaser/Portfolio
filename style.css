@@ -285,3 +285,10 @@ form button:hover {
     flex-direction: column;
     justify-content: center; /* Center content vertically if the page is short */
 }
+
+@media (max-width: 768px) {
+    main {
+        padding: 1rem; /* Reduce padding on smaller screens */
+        text-align: left; /* Optional: Align text to the left */
+    }
+}
