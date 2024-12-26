@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", loadProjects);
 
 // Handle the form submission
 document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent page reload on form submission
+    event.preventDefault(); // Prevent form from reloading the page
 
     // Collect form data
     const name = document.getElementById("name").value.trim();
@@ -257,7 +257,7 @@ document.getElementById("contactForm").addEventListener("submit", function (even
         return;
     }
 
-    // Simulate form submission
+    // Simulate successful submission
     const feedback = document.getElementById("formFeedback");
     feedback.textContent = `Thank you, ${name}! Your message has been received.`;
     feedback.style.display = "block";
@@ -265,3 +265,4 @@ document.getElementById("contactForm").addEventListener("submit", function (even
     // Clear the form
     document.getElementById("contactForm").reset();
 });
+
