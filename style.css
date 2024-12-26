@@ -1,8 +1,10 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* Ensures the page always fills the viewport */
+    height: 100%; /* Full viewport height */
+    width: 100%; /* Full viewport width */
 }
+
 
 html {
     overflow-y: scroll; /* Ensures a vertical scrollbar is always visible */
@@ -55,18 +57,15 @@ nav ul li a.active {
 }
 
 
-/* Main content styles */
 main {
-    flex-grow: 1; /* Allows main to take up remaining space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Align content horizontally, but prevent squeezing */
-    width: 100%; /* Ensure the main section spans the full width */
-    max-width: 100%; /* Prevent it from shrinking unnecessarily */
-    padding: 2rem; /* Add padding for aesthetics */
+    flex-grow: 1; /* Allow main to take up remaining space between header and footer */
+    width: 100%; /* Ensure full width */
+    max-width: 1200px; /* Limit content width for better readability */
+    margin: 0 auto; /* Center horizontally */
+    padding: 2rem; /* Add padding for spacing */
     box-sizing: border-box; /* Include padding in width calculations */
 }
+
 
 /* Prevent children of main from squeezing */
 main > * {
@@ -76,12 +75,14 @@ main > * {
     margin: 0 auto; /* Center the children horizontally */
 }
 
-/* General section styles */
 main > section {
-    width: 100%; /* Ensure sections span the full width of the page */
-    min-height: calc(100vh - 120px); /* Adjust for header and footer height */
-    box-sizing: border-box; /* Include padding in height calculations */
+    width: 100%; /* Ensure full width */
+    padding: 2rem 1rem; /* Add consistent padding */
+    box-sizing: border-box; /* Include padding in width calculations */
+    background: none; /* Clear unnecessary background from global styles */
+    text-align: center; /* Default text alignment */
 }
+
 
 /* Footer styles */
 footer {
@@ -91,16 +92,11 @@ footer {
     padding: 1rem 0;
 }
 
-/* Portfolio Section */
 #portfolio {
     background: #eef;
     padding: 2rem 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
 }
+
 
 #portfolio h2 {
     color: #0078d7;
@@ -132,16 +128,11 @@ footer {
     color: #555;
 }
 
-/* Organizer Section */
 #organizer {
     background: #fef;
     padding: 2rem 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
 }
+
 
 #organizer h2 {
     color: #d70078;
@@ -204,15 +195,10 @@ button:hover {
     background: #c00;
 }
 
-/* Grades Section */
 #grades {
     background: #eef;
     padding: 2rem 1rem;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
 }
 
 #grades h2 {
@@ -221,18 +207,14 @@ button:hover {
 
 .grade-container {
     max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
+    margin: 0 auto; /* Center horizontally */
+    text-align: left; /* Align text properly */
+    box-sizing: border-box;
 }
 
-#subjectInput,
-#gradeInput {
-    width: calc(50% - 10px);
-    padding: 0.5rem;
-    margin-right: 10px;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+#subjectInput, #gradeInput {
+    width: calc(50% - 10px); /* Split inputs evenly */
+    margin-right: 10px; /* Space between inputs */
 }
 
 #gradeList {
@@ -253,16 +235,11 @@ button:hover {
     margin-top: 1rem;
 }
 
-/* Contact Section */
 #contact {
-    background: #f4f9f9; /* Background color */
+    background: #f4f9f9;
     padding: 2rem 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
 }
+
 
 #contact h2 {
     color: #0078d7;
