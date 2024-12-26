@@ -29,22 +29,17 @@
         </section>
         
         <section id="portfolio">
-    <h2>My Portfolio</h2>
+    <h2>Portfolio</h2>
     <div class="portfolio-container">
-        <div class="portfolio-item">
-            <h3>Project 1</h3>
-            <p>Description of the project. Highlight key features and outcomes.</p>
-        </div>
-        <div class="portfolio-item">
-            <h3>Project 2</h3>
-            <p>Description of the project. Highlight key features and outcomes.</p>
-        </div>
-        <div class="portfolio-item">
-            <h3>Project 3</h3>
-            <p>Description of the project. Highlight key features and outcomes.</p>
-        </div>
+        <!-- Dynamically loaded projects will appear here -->
+    </div>
+    <div class="add-project-form">
+        <input type="text" id="projectTitle" placeholder="Project Title">
+        <textarea id="projectDescription" placeholder="Project Description"></textarea>
+        <button onclick="addProject()">Add Project</button>
     </div>
 </section>
+
         
         <section id="organizer">
     <h2>Task Organizer</h2>
@@ -59,12 +54,12 @@
     <h2>Grade Tracker</h2>
     <div class="grade-container">
         <input type="text" id="subjectInput" placeholder="Subject Name">
-        <input type="number" id="gradeInput" placeholder="Grade (%)" min="0" max="100">
+        <input type="number" id="gradeInput" placeholder="Grade (%)">
         <button onclick="addGrade()">Add Grade</button>
         <ul id="gradeList"></ul>
-        <canvas id="gradeChart" width="400" height="200"></canvas>
     </div>
 </section>
+
         
 <section id="contact">
     <h2>Contact Me</h2>
