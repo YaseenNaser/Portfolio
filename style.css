@@ -303,3 +303,10 @@ form button:hover {
         text-align: left; /* Optional: Align text to the left */
     }
 }
+
+#formFeedback {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: green;
+    text-align: center;
+}
