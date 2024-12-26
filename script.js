@@ -57,36 +57,68 @@ function removeTask(index) {
 document.addEventListener("DOMContentLoaded", loadTasks);
 
 
+// Function to load grades from localStorage
+function loadGrades() {
+    const gradeList = document.getElementById("gradeList");
+    gradeList.innerHTML = ""; // Clear the current list
+
+    // Get grades from localStorage
+    const grades = JSON.parse(localStorage.getItem("grades")) || [];
+
+    // Render grades in the UI
+    grades.forEach((grade, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${grade.subject}: ${grade.score}%`;
+
+        // Add a remove button to each grade
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.onclick = () => removeGrade(index);
+
+        li.appendChild(removeButton);
+        gradeList.appendChild(li);
+    });
+}
+
 // Function to add a grade
 function addGrade() {
     const subjectInput = document.getElementById("subjectInput");
     const gradeInput = document.getElementById("gradeInput");
-    const gradeList = document.getElementById("gradeList");
 
     const subject = subjectInput.value.trim();
-    const grade = parseFloat(gradeInput.value);
+    const score = gradeInput.value.trim();
 
-    if (!subject || isNaN(grade) || grade < 0 || grade > 100) {
-        alert("Please enter a valid subject and grade (0-100)!");
+    if (subject === "" || score === "") {
+        alert("Please enter both subject and grade!");
         return;
     }
 
-    // Store grades and subjects
-    grades.push(grade);
-    subjects.push(subject);
+    // Save the grade to localStorage
+    const grades = JSON.parse(localStorage.getItem("grades")) || [];
+    grades.push({ subject, score });
+    localStorage.setItem("grades", JSON.stringify(grades));
 
-    // Add to the grade list
-    const li = document.createElement("li");
-    li.textContent = `${subject}: ${grade}%`;
-    gradeList.appendChild(li);
-
-    // Clear inputs
+    // Clear the input fields
     subjectInput.value = "";
     gradeInput.value = "";
 
-    // Update chart
-    updateChart();
+    // Reload grades
+    loadGrades();
 }
+
+// Function to remove a grade
+function removeGrade(index) {
+    const grades = JSON.parse(localStorage.getItem("grades")) || [];
+    grades.splice(index, 1); // Remove the grade at the given index
+    localStorage.setItem("grades", JSON.stringify(grades));
+
+    // Reload grades
+    loadGrades();
+}
+
+// Load grades when the page loads
+document.addEventListener("DOMContentLoaded", loadGrades);
+
 
 // Function to update the chart
 function updateChart() {
