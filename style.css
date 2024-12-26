@@ -204,16 +204,16 @@ button:hover {
     background: #c00;
 }
 
-/* Grades Section */
+/* Grade Tracker Section */
 #grades {
     background: #eef; /* Background color */
-    padding: 2rem 1rem;
+    padding: 2rem; /* Add padding for spacing */
     text-align: center;
     display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    width: 100%; /* Ensure the section spans the full width */
+    width: 100%; /* Ensure full width */
     min-height: calc(100vh - 120px); /* Fill the viewport height, subtracting header/footer height */
     box-sizing: border-box; /* Include padding in height calculations */
 }
@@ -224,13 +224,17 @@ button:hover {
 
 /* Grade Tracker Container */
 .grade-container {
-    max-width: 600px; /* Limit the width of the grade container */
-    width: 100%; /* Ensure the container spans full width for smaller screens */
+    width: 100%;
+    max-width: 600px; /* Limit the width for better readability */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content inside the grade tracker container */
-    text-align: left; /* Align text to the left */
-    gap: 1rem; /* Add spacing between form inputs */
+    gap: 1rem; /* Space between inputs */
+    align-items: stretch; /* Ensure inputs take full width */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 1rem;
+    background: #fff; /* Optional: Add a white background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for design */
 }
 
 #subjectInput,
