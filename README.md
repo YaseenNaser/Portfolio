@@ -36,7 +36,7 @@ Welcome to my portfolio website! This project showcases my work, skills, and too
 ## How to Access the Website
 
 You can access the website by visiting the following link:
-[https://yaseennaser.github.io/](https://yaseennaser.github.io/Portfolio)
+[https://yaseennaser.github.io/Portfolio](https://yaseennaser.github.io/Portfolio)
 
 ---
 
