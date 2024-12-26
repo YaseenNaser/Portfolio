@@ -241,3 +241,40 @@ function removeProject(index) {
 
 // Load projects when the page loads
 document.addEventListener("DOMContentLoaded", loadProjects);
+
+// Initialize EmailJS with the Public Key
+emailjs.init("Gqa9gxGz0BRUi1M3h"); // Your Public Key
+
+// Handle the form submission
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent page reload on form submission
+
+    // Collect form data
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Validate form inputs
+    if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // Send email using EmailJS
+    emailjs.send("service_79c5utn", "template_9q0xb8t", {
+        name: name,
+        email: email,
+        message: message,
+    })
+    .then(function (response) {
+        console.log("Email sent successfully!", response.status, response.text);
+        alert("Thank you! Your message has been sent.");
+        // Clear the form
+        document.getElementById("contactForm").reset();
+    })
+    .catch(function (error) {
+        console.error("Failed to send email.", error);
+        alert("Oops! Something went wrong. Please try again.");
+    });
+});
+
