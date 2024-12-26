@@ -206,23 +206,31 @@ button:hover {
 
 /* Grades Section */
 #grades {
-    background: #eef;
+    background: #eef; /* Background color */
     padding: 2rem 1rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
+    width: 100%; /* Ensure the section spans the full width */
+    min-height: calc(100vh - 120px); /* Fill the viewport height, subtracting header/footer height */
+    box-sizing: border-box; /* Include padding in height calculations */
 }
 
 #grades h2 {
     color: #0078d7;
 }
 
+/* Grade Tracker Container */
 .grade-container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
+    max-width: 600px; /* Limit the width of the grade container */
+    width: 100%; /* Ensure the container spans full width for smaller screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content inside the grade tracker container */
+    text-align: left; /* Align text to the left */
+    gap: 1rem; /* Add spacing between form inputs */
 }
 
 #subjectInput,
