@@ -1,6 +1,6 @@
 # My Portfolio Website
 
-Welcome to my portfolio website! This project showcases my work, skills, and tools, along with features like a task organizer and grade tracker. It is hosted on GitHub Pages and can be accessed directly through this link: [Visit My Portfolio](https://github.com/YaseenNaser/Portfolio).
+Welcome to my portfolio website! This project showcases my work, skills, and tools, along with features like a task organizer and grade tracker. It is hosted on GitHub Pages and can be accessed directly through this link: [Visit My Portfolio](https://yaseennaser.github.io/Portfolio).
 
 ---
 
@@ -36,7 +36,7 @@ Welcome to my portfolio website! This project showcases my work, skills, and too
 ## How to Access the Website
 
 You can access the website by visiting the following link:
-[https://yaseennaser.github.io/](https://yaseennaser.github.io/)
+[https://yaseennaser.github.io/](https://yaseennaser.github.io/Portfolio)
 
 ---
 
