@@ -1,34 +1,61 @@
-// Function to add a new task
+// Function to load tasks from localStorage
+function loadTasks() {
+    const taskList = document.getElementById("taskList");
+    taskList.innerHTML = ""; // Clear the current list
+
+    // Get tasks from localStorage
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    // Render tasks in the UI
+    tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.textContent = task;
+
+        // Add a remove button to each task
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.onclick = () => removeTask(index);
+
+        li.appendChild(removeButton);
+        taskList.appendChild(li);
+    });
+}
+
+// Function to add a task
 function addTask() {
     const taskInput = document.getElementById("taskInput");
-    const taskList = document.getElementById("taskList");
+    const task = taskInput.value.trim();
 
-    if (taskInput.value.trim() === "") {
+    if (task === "") {
         alert("Please enter a task!");
         return;
     }
 
-    // Create a new list item
-    const li = document.createElement("li");
-    li.textContent = taskInput.value;
-
-    // Add a delete button
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.onclick = function () {
-        li.remove();
-    };
-
-    li.appendChild(deleteButton);
-    taskList.appendChild(li);
+    // Save the task to localStorage
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.push(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
     // Clear the input field
     taskInput.value = "";
+
+    // Reload tasks
+    loadTasks();
 }
 
-// Array to store grades
-const grades = [];
-const subjects = [];
+// Function to remove a task
+function removeTask(index) {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.splice(index, 1); // Remove the task at the given index
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    // Reload tasks
+    loadTasks();
+}
+
+// Load tasks when the page loads
+document.addEventListener("DOMContentLoaded", loadTasks);
+
 
 // Function to add a grade
 function addGrade() {
