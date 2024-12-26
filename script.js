@@ -171,3 +171,73 @@ document.getElementById("contactForm").addEventListener("submit", function (even
         feedback.style.display = "none";
     }, 3000);
 });
+
+// Function to load projects from localStorage
+function loadProjects() {
+    const projectContainer = document.querySelector(".portfolio-container");
+    projectContainer.innerHTML = ""; // Clear the current list
+
+    // Get projects from localStorage
+    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+
+    // Render projects in the UI
+    projects.forEach((project, index) => {
+        const projectDiv = document.createElement("div");
+        projectDiv.classList.add("portfolio-item");
+
+        const title = document.createElement("h3");
+        title.textContent = project.title;
+
+        const description = document.createElement("p");
+        description.textContent = project.description;
+
+        // Add a remove button to each project
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.onclick = () => removeProject(index);
+
+        projectDiv.appendChild(title);
+        projectDiv.appendChild(description);
+        projectDiv.appendChild(removeButton);
+        projectContainer.appendChild(projectDiv);
+    });
+}
+
+// Function to add a project
+function addProject() {
+    const titleInput = document.getElementById("projectTitle");
+    const descriptionInput = document.getElementById("projectDescription");
+
+    const title = titleInput.value.trim();
+    const description = descriptionInput.value.trim();
+
+    if (title === "" || description === "") {
+        alert("Please enter both title and description!");
+        return;
+    }
+
+    // Save the project to localStorage
+    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+    projects.push({ title, description });
+    localStorage.setItem("projects", JSON.stringify(projects));
+
+    // Clear the input fields
+    titleInput.value = "";
+    descriptionInput.value = "";
+
+    // Reload projects
+    loadProjects();
+}
+
+// Function to remove a project
+function removeProject(index) {
+    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+    projects.splice(index, 1); // Remove the project at the given index
+    localStorage.setItem("projects", JSON.stringify(projects));
+
+    // Reload projects
+    loadProjects();
+}
+
+// Load projects when the page loads
+document.addEventListener("DOMContentLoaded", loadProjects);
