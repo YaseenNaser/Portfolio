@@ -76,6 +76,13 @@ main > * {
     margin: 0 auto; /* Center the children horizontally */
 }
 
+/* General section styles */
+main > section {
+    width: 100%; /* Ensure sections span the full width of the page */
+    min-height: calc(100vh - 120px); /* Adjust for header and footer height */
+    box-sizing: border-box; /* Include padding in height calculations */
+}
+
 /* Footer styles */
 footer {
     background: #333;
@@ -84,10 +91,15 @@ footer {
     padding: 1rem 0;
 }
 
+/* Portfolio Section */
 #portfolio {
     background: #eef;
     padding: 2rem 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 #portfolio h2 {
@@ -120,10 +132,15 @@ footer {
     color: #555;
 }
 
+/* Organizer Section */
 #organizer {
     background: #fef;
     padding: 2rem 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 #organizer h2 {
@@ -187,10 +204,15 @@ button:hover {
     background: #c00;
 }
 
+/* Grades Section */
 #grades {
     background: #eef;
     padding: 2rem 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 #grades h2 {
@@ -231,10 +253,15 @@ button:hover {
     margin-top: 1rem;
 }
 
+/* Contact Section */
 #contact {
-    background: #f4f9f9;
+    background: #f4f9f9; /* Background color */
     padding: 2rem 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 #contact h2 {
