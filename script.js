@@ -251,6 +251,11 @@ document.getElementById("contactForm").addEventListener("submit", function (even
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
+    // Debug: Log values to console
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
+
     // Validate form inputs
     if (!name || !email || !message) {
         alert("Please fill in all fields.");
@@ -265,4 +270,3 @@ document.getElementById("contactForm").addEventListener("submit", function (even
     // Clear the form
     document.getElementById("contactForm").reset();
 });
-
