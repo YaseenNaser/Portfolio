@@ -170,7 +170,7 @@ function loadProjects() {
 
         // Render projects in all portfolio containers
         projectContainers.forEach((container) => {
-            projects.forEach((project) => {
+            projects.forEach((project, index) => {
                 const projectDiv = document.createElement("div");
                 projectDiv.classList.add("portfolio-item");
 
@@ -180,8 +180,15 @@ function loadProjects() {
                 const description = document.createElement("p");
                 description.textContent = project.description;
 
+                // Add the "Remove" button
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.classList.add("btn-danger"); // Optional: Add class for styling
+                removeButton.onclick = () => removeProject(index);
+
                 projectDiv.appendChild(title);
                 projectDiv.appendChild(description);
+                projectDiv.appendChild(removeButton);
 
                 container.appendChild(projectDiv);
             });
@@ -220,7 +227,7 @@ function removeProject(index) {
     projects.splice(index, 1); // Remove the project at the given index
     localStorage.setItem("projects", JSON.stringify(projects));
 
-    // Reload the project list
+    // Reload the project list on all relevant pages
     loadProjects();
 }
 
