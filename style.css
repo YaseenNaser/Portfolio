@@ -575,3 +575,27 @@ body.dark-mode #contact {
     color: #f1f1f1; /* Light text */
     border: 1px solid #444; /* Subtle border for contrast */
 }
+
+/* Remove borders in Dark Mode: Organizer Section */
+body.dark-mode #organizer {
+    border: none; /* Remove border */
+    background-color: #1e1e1e; /* Match the background color */
+}
+
+/* Remove borders in Dark Mode: Grades Section */
+body.dark-mode #grades {
+    border: none; /* Remove border */
+    background-color: #1e1e1e; /* Match the background color */
+}
+
+/* Remove borders in Dark Mode: Contact Section */
+body.dark-mode #contact {
+    border: none; /* Remove border */
+    background-color: #1e1e1e; /* Match the background color */
+}
+
+/* Remove borders in Dark Mode: Portfolio Container */
+body.dark-mode .portfolio-container {
+    border: none; /* Remove border */
+    background-color: #1e1e1e; /* Match the background color */
+}
