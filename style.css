@@ -507,14 +507,14 @@ body.dark-mode .portfolio-container {
 /* Task Container in Dark Mode */
 body.dark-mode .task-container {
     background-color: #1e1e1e; /* Dark background */
-    border: 1px solid #444; /* Subtle border */
+    border: none
     color: #f1f1f1; /* Light text */
 }
 
 /* Grade Container in Dark Mode */
 body.dark-mode .grade-container {
     background-color: #1e1e1e; /* Dark background */
-    border: 1px solid #444; /* Subtle border */
+    border: none
     color: #f1f1f1; /* Light text */
 }
 
@@ -576,26 +576,7 @@ body.dark-mode #contact {
     border: 1px solid #444; /* Subtle border for contrast */
 }
 
-/* Remove borders in Dark Mode: Organizer Section */
-body.dark-mode #organizer {
-    border: none; /* Remove border */
-    background-color: #1e1e1e; /* Match the background color */
-}
-
-/* Remove borders in Dark Mode: Grades Section */
-body.dark-mode #grades {
-    border: none; /* Remove border */
-    background-color: #1e1e1e; /* Match the background color */
-}
-
-/* Remove borders in Dark Mode: Contact Section */
-body.dark-mode #contact {
-    border: none; /* Remove border */
-    background-color: #1e1e1e; /* Match the background color */
-}
-
-/* Remove borders in Dark Mode: Portfolio Container */
-body.dark-mode .portfolio-container {
-    border: none; /* Remove border */
-    background-color: #1e1e1e; /* Match the background color */
+/* contact form in Dark Mode */
+body.dark-mode #contactForm {
+    border: none
 }
