@@ -554,3 +554,24 @@ body.dark-mode .grade-container button:hover,
 body.dark-mode .portfolio-container button:hover {
     background-color: #555; /* Lighter hover effect */
 }
+
+/* Dark Mode: Organizer Section */
+body.dark-mode #organizer {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid #444; /* Subtle border for contrast */
+}
+
+/* Dark Mode: Grades Section */
+body.dark-mode #grades {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid #444; /* Subtle border for contrast */
+}
+
+/* Dark Mode: Contact Section */
+body.dark-mode #contact {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid #444; /* Subtle border for contrast */
+}
