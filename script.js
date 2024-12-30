@@ -250,6 +250,56 @@ function loadProjects() {
     }
 }
 
+function addProject() {
+    const titleInput = document.getElementById("projectTitle");
+    const descriptionInput = document.getElementById("projectDescription");
+
+    const title = titleInput.value.trim();
+    const description = descriptionInput.value.trim();
+
+    if (title === "" || description === "") {
+        alert("Please enter both title and description!");
+        return;
+    }
+
+    // Get existing projects from localStorage
+    const projects = getFromLocalStorage("projects");
+    projects.push({ title, description }); // Add the new project
+    saveToLocalStorage("projects", projects); // Save updated projects
+
+    // Create the project element
+    const projectContainer = document.querySelector(".portfolio-container");
+    const projectDiv = document.createElement("div");
+    projectDiv.classList.add("portfolio-item");
+
+    const titleElement = document.createElement("h3");
+    titleElement.textContent = title;
+
+    const descriptionElement = document.createElement("p");
+    descriptionElement.textContent = description;
+
+    // Add "Remove" button
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.onclick = () => {
+        removeProject(projects.findIndex(p => p.title === title && p.description === description));
+    };
+
+    projectDiv.appendChild(titleElement);
+    projectDiv.appendChild(descriptionElement);
+    projectDiv.appendChild(removeButton);
+
+    // Apply dark mode dynamically if enabled
+    applyDarkModeClass(projectDiv);
+
+    // Append the project to the container
+    projectContainer.appendChild(projectDiv);
+
+    // Clear input fields
+    titleInput.value = "";
+    descriptionInput.value = "";
+}
+
 function removeProject(index) {
 
     const projects = getFromLocalStorage("projects");
