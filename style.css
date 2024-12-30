@@ -92,21 +92,14 @@ footer {
     padding: 1rem 0;
 }
 
-#portfolio {
-    background: #eef;
-    padding: 2rem 1rem;
-}
-
-
-#portfolio h2 {
-    color: #0078d7;
-}
-
 .portfolio-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #eef;
+    border-radius: 8px;
 }
 
 .portfolio-item {
@@ -114,19 +107,59 @@ footer {
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 1rem;
-    width: 250px;
+    width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .portfolio-item h3 {
     color: #0078d7;
-    margin-bottom: 0.5rem;
 }
 
-.portfolio-item p {
-    font-size: 0.9rem;
-    color: #555;
+.portfolio-item button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+.portfolio-item button:hover {
+    background-color: #d32f2f;
+}
+
+.add-project-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-project-form input,
+.add-project-form textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-project-form button {
+    padding: 0.7rem;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-project-form button:hover {
+    background-color: #005a9e;
+}
+
 
 #organizer {
     background: #fef;
