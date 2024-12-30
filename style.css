@@ -14,8 +14,8 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* Full viewport height */
-    width: 100%; /* Full viewport width */
+    height: 100%;
+    width: 100%;
     font-family: Arial, sans-serif;
     background-color: var(--background-light);
     color: var(--text-color);
@@ -31,10 +31,9 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure body spans full viewport height */
+    min-height: 100vh;
 }
 
-/* Container for Main Content */
 .container {
     flex: 1;
     display: flex;
@@ -72,14 +71,18 @@ nav ul li a.active {
 
 /* Main Content */
 main {
-    flex: 1; /* Allow main to grow and push footer down */
-    max-width: 1200px;
+    flex: 1;
+    width: 100%;
+    max-width: 1400px; /* Increased to maintain homepage perfection */
     margin: 0 auto;
     padding: 2rem;
     box-sizing: border-box;
 }
 
 main > section {
+    width: 100%;
+    max-width: 1200px; /* Ensures consistency across all pages */
+    margin: 0 auto; /* Center content */
     padding: 2rem 1rem;
     text-align: center;
     border-radius: var(--border-radius);
@@ -167,7 +170,7 @@ main > section {
 }
 
 .task-container {
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
     text-align: left;
 }
@@ -235,7 +238,7 @@ button:hover {
 }
 
 .grade-container {
-    max-width: 600px;
+    max-width: 800px; /* Increased width to avoid narrow layout */
     margin: 0 auto;
     text-align: left;
     box-sizing: border-box;
@@ -321,7 +324,7 @@ footer {
     color: var(--white);
     text-align: center;
     padding: 1rem 0;
-    margin-top: auto; /* Ensure footer stays at the bottom */
+    margin-top: auto;
 }
 
 /* Responsive Design */
