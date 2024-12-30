@@ -318,6 +318,20 @@ form button:hover {
     text-align: center;
 }
 
+main.secondary-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    height: 100%; /* Full viewport height */
+}
+
+main.secondary-page > section {
+    margin: 0 auto; /* Centers the section horizontally */
+    max-width: 800px; /* Adjust width as needed */
+    width: 100%; /* Ensure full width */
+}
+
 /* Footer Styles */
 footer {
     background: var(--background-dark);
