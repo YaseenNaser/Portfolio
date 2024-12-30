@@ -163,8 +163,9 @@ function loadProjects() {
             description.textContent = project.description;
 
             if (projectContainers[0].classList.contains("editable")) {
-                const removeButton = createRemoveButton(() => removeProject(index));
-                projectDiv.appendChild(removeButton);
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.onclick = () => removeProject(index);
             }
 
             projectDiv.appendChild(title);
