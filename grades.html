@@ -5,37 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade Tracker - Track Your Grades</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> <!-- Add defer to ensure the script runs after HTML -->
+    <script src="script.js" defer></script>
 </head>
 <body>
- <div class="container">
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="organizer.html">Task Organizer</a></li>
-                <li><a href="grades.html" class="active">Grade Tracker</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="grades">
-    <h2>Grade Tracker</h2>
-    <div class="grade-container">
-        <input type="text" id="subjectInput" placeholder="Subject Name">
-        <input type="number" id="gradeInput" placeholder="Grade (%)">
-        <button onclick="addGrade()">Add Grade</button>
-        <ul id="gradeList"></ul>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="organizer.html">Task Organizer</a></li>
+                    <li><a href="grades.html" class="active">Grade Tracker</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="grades">
+                <h2>Grade Tracker</h2>
+                <div class="grade-container">
+                    <input type="text" id="subjectInput" placeholder="Subject Name" aria-label="Subject Name">
+                    <input type="number" id="gradeInput" placeholder="Grade (%)" aria-label="Grade Percentage">
+                    <button onclick="addGrade()" aria-label="Add Grade">Add Grade</button>
+                    <ul id="gradeList">
+                        <p id="noGradesMessage">No grades added yet. Start by adding your first grade!</p>
+                    </ul>
+                </div>
+                <canvas id="gradeChart" width="400" height="200"></canvas>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Student Portfolio & Organizer</p>
+        </footer>
     </div>
-</section>
-
-
-    </main>
-    <footer>
-        <p>&copy; 2024 Student Portfolio & Organizer</p>
-    </footer>
- </div>
 </body>
 </html>
