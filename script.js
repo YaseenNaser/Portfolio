@@ -214,11 +214,13 @@ function addProject() {
     loadProjects();
 }
 
+// Function to remove a project
 function removeProject(index) {
     const projects = JSON.parse(localStorage.getItem("projects")) || [];
-    projects.splice(index, 1);
+    projects.splice(index, 1); // Remove the project at the given index
     localStorage.setItem("projects", JSON.stringify(projects));
 
+    // Reload the project list
     loadProjects();
 }
 
