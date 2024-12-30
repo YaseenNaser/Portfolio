@@ -251,14 +251,6 @@ function loadProjects() {
 }
 
 function removeProject(index) {
-    const projects = getFromLocalStorage("projects");
-    projects.splice(index, 1); // Remove the project at the specified index
-    saveToLocalStorage("projects", projects);
-
-    loadProjects();
-
-    // Reapply Dark Mode
-    reapplyDarkMode(".portfolio-container");
 
     const projects = getFromLocalStorage("projects");
     projects.push({ title, description });
