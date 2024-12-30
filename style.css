@@ -80,6 +80,18 @@ main {
     box-sizing: border-box;
 }
 
+/* Vertically center the homepage contents */
+main.homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Ensure text alignment is centered */
+    padding: 2rem; /* Add padding for aesthetics */
+    box-sizing: border-box; /* Include padding in height calculations */
+}
+
 main > section {
     width: 100%;
     max-width: 1200px; /* Ensures consistency across all pages */
