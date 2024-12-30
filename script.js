@@ -258,16 +258,38 @@ function initThemeToggle() {
 
     // Apply saved theme on load
     if (darkModeEnabled) {
-        document.body.classList.add("dark-mode");
+        enableDarkMode();
         themeToggle.textContent = "☀️"; // Sun icon for toggling Light Mode
     }
 
     // Toggle theme on button click
     themeToggle.addEventListener("click", () => {
         const isDarkMode = document.body.classList.toggle("dark-mode");
-        localStorage.setItem("darkMode", isDarkMode); // Save preference in localStorage
+        localStorage.setItem("darkMode", isDarkMode);
 
         // Update button icon
         themeToggle.textContent = isDarkMode ? "☀️" : "🌙";
+
+        // Apply or remove Dark Mode classes to child elements
+        toggleDarkModeElements(isDarkMode);
+    });
+}
+
+function enableDarkMode() {
+    document.body.classList.add("dark-mode");
+
+    // Add 'dark-mode' class to other elements
+    document.querySelectorAll("header, footer, nav ul li a, input, textarea, button, .portfolio-item, #taskList li, #gradeList li").forEach((el) => {
+        el.classList.add("dark-mode");
+    });
+}
+
+function toggleDarkModeElements(enable) {
+    document.querySelectorAll("header, footer, nav ul li a, input, textarea, button, .portfolio-item, #taskList li, #gradeList li").forEach((el) => {
+        if (enable) {
+            el.classList.add("dark-mode");
+        } else {
+            el.classList.remove("dark-mode");
+        }
     });
 }
