@@ -21,8 +21,11 @@ function saveToLocalStorage(key, data) {
 }
 
 function applyDarkModeClass(element) {
-    if (document.body.classList.contains("dark-mode")) {
+    const isDarkMode = document.body.classList.contains("dark-mode");
+    if (isDarkMode) {
         element.classList.add("dark-mode");
+    } else {
+        element.classList.remove("dark-mode");
     }
 }
 
@@ -84,7 +87,7 @@ function addTask() {
     };
     li.appendChild(removeButton);
 
-    applyDarkModeClass(li); // Apply Dark Mode class if active
+    applyDarkModeClass(li); // Apply Dark Mode class dynamically
 
     // Append the task to the list
     taskList.appendChild(li);
@@ -161,7 +164,7 @@ function addGrade() {
     };
     li.appendChild(removeButton);
 
-    applyDarkModeClass(li); // Apply Dark Mode class if active
+    applyDarkModeClass(li); // Apply Dark Mode class dynamically
 
     // Append the grade to the list
     gradeList.appendChild(li);
@@ -244,7 +247,6 @@ function addProject() {
     const projectContainer = document.querySelector(".portfolio-container");
     const projectDiv = document.createElement("div");
     projectDiv.classList.add("portfolio-item");
-    applyDarkModeClass(projectDiv); // Apply Dark Mode class if active
 
     const titleElement = document.createElement("h3");
     titleElement.textContent = title;
@@ -261,6 +263,8 @@ function addProject() {
     projectDiv.appendChild(titleElement);
     projectDiv.appendChild(descriptionElement);
     projectDiv.appendChild(removeButton);
+
+    applyDarkModeClass(projectDiv); // Apply Dark Mode class dynamically
 
     // Append the project to the container
     projectContainer.appendChild(projectDiv);
