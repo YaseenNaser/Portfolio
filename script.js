@@ -162,6 +162,10 @@ function loadProjects() {
                 const description = document.createElement("p");
                 description.textContent = project.description;
 
+                // Append title and description first
+                projectDiv.appendChild(title);
+                projectDiv.appendChild(description);
+
                 // Add the Remove button below the content
                 if (container.classList.contains("editable")) {
                     const removeButton = document.createElement("button");
@@ -169,12 +173,10 @@ function loadProjects() {
                     removeButton.onclick = () => {
                         removeProject(index); // Call the remove function
                     };
-                    projectDiv.appendChild(removeButton); // Append the button to the projectDiv
+                    projectDiv.appendChild(removeButton); // Append the button to the bottom
                 }
 
-                projectDiv.appendChild(title);
-                projectDiv.appendChild(description);
-                container.appendChild(projectDiv); // Append the project directly to the container
+                container.appendChild(projectDiv); // Append the project div to the container
             });
         });
     }
