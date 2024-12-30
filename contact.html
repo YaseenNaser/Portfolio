@@ -5,48 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> <!-- Add defer to ensure the script runs after HTML -->
+    <script src="script.js" defer></script>
 </head>
 <body>
- <div class="container">
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="organizer.html">Task Organizer</a></li>
-                <li><a href="grades.html">Grade Tracker</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact-container">
-        <form id="contactForm">
-    <label for="name">Name</label>
-    <input type="text" id="name" placeholder="Your Name">
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="organizer.html">Task Organizer</a></li>
+                    <li><a href="grades.html">Grade Tracker</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <div class="contact-container">
+                    <form id="contactForm">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name" aria-label="Your Name" required>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" placeholder="Your Email">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email" aria-label="Your Email" required>
 
-    <label for="message">Message</label>
-    <textarea id="message" placeholder="Your Message" rows="5"></textarea>
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Your Message" rows="5" aria-label="Your Message" required></textarea>
 
-    <button type="submit">Send Message</button>
-</form>
-<p id="formFeedback" style="display: none; color: green;">Thank you! Your message has been received.</p>
-
-        <p id="formFeedback" style="display: none; color: green;">Thank you! Your message has been received.</p>
+                        <button type="submit" aria-label="Send Message">Send Message</button>
+                    </form>
+                    <p id="formFeedback" style="display: none; color: green;">Thank you! Your message has been received.</p>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Student Portfolio & Organizer</p>
+        </footer>
     </div>
-</section>
-
-
-    </main>
-    <footer>
-        <p>&copy; 2024 Student Portfolio & Organizer</p>
-    </footer>
- </div>
 </body>
 </html>
