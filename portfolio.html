@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - My Projects</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> <!-- Add defer to ensure the script runs after HTML -->
+    <script src="script.js" defer></script>
 </head>
 <body>
  <div class="container">
@@ -22,18 +22,18 @@
     </header>
     <main>
         <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-container">
-        <!-- Dynamically loaded projects will appear here -->
-    </div>
-    <div class="add-project-form">
-        <input type="text" id="projectTitle" placeholder="Project Title">
-        <textarea id="projectDescription" placeholder="Project Description"></textarea>
-        <button onclick="addProject()">Add Project</button>
-    </div>
-</section>
-
-
+            <h2>Portfolio</h2>
+            <div class="portfolio-container">
+                <p id="noProjectsMessage">No projects added yet. Add your first project below!</p>
+            </div>
+            <div class="add-project-form">
+                <label for="projectTitle">Project Title</label>
+                <input type="text" id="projectTitle" placeholder="Project Title">
+                <label for="projectDescription">Project Description</label>
+                <textarea id="projectDescription" placeholder="Project Description"></textarea>
+                <button onclick="addProject()">Add Project</button>
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Student Portfolio & Organizer</p>
