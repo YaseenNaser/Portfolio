@@ -109,20 +109,30 @@ main > section {
     width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ensure consistent height for all items */
 }
 
 .portfolio-item h3 {
     color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-item p {
+    margin-bottom: 1rem; /* Add spacing between content and button */
 }
 
 .portfolio-item button {
-    margin-top: 1rem;
+    margin-top: auto; /* Push the button to the bottom */
     padding: 0.5rem 1rem;
     background-color: var(--danger-color);
     color: var(--white);
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
+    align-self: center; /* Center the button horizontally */
 }
 
 .portfolio-item button:hover {
@@ -256,11 +266,28 @@ button:hover {
 }
 
 #gradeList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.5rem;
     background: var(--white);
     margin-bottom: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+#gradeList li button {
+    margin-left: auto; /* Push the button to the far right */
+    background: var(--danger-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+}
+
+#gradeList li button:hover {
+    background: var(--danger-hover);
 }
 
 /* Contact Section */
