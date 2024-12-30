@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Load data for each section
+    // Load data for each page
     if (document.getElementById("taskList")) loadTasks();
     if (document.getElementById("gradeList")) loadGrades();
     if (document.querySelector(".portfolio-container")) loadProjects();
 
-    // Initialize Contact Form functionality
+    // Initialize Contact Form
     initContactForm();
 });
 
@@ -17,14 +17,15 @@ function loadTasks() {
     taskList.innerHTML = ""; // Clear the current list
 
     if (tasks.length === 0) {
-        noTasksMessage.style.display = "block";
+        if (noTasksMessage) noTasksMessage.style.display = "block";
     } else {
-        noTasksMessage.style.display = "none";
+        if (noTasksMessage) noTasksMessage.style.display = "none";
 
         tasks.forEach((task, index) => {
             const li = document.createElement("li");
             li.textContent = task;
 
+            // Add the "Remove" button only on the Task Organizer page
             if (taskList.classList.contains("editable")) {
                 const removeButton = document.createElement("button");
                 removeButton.textContent = "Remove";
@@ -57,7 +58,7 @@ function addTask() {
 
 function removeTask(index) {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    tasks.splice(index, 1);
+    tasks.splice(index, 1); // Remove the task at the given index
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
     loadTasks();
@@ -72,14 +73,15 @@ function loadGrades() {
     gradeList.innerHTML = ""; // Clear the current list
 
     if (grades.length === 0) {
-        noGradesMessage.style.display = "block";
+        if (noGradesMessage) noGradesMessage.style.display = "block";
     } else {
-        noGradesMessage.style.display = "none";
+        if (noGradesMessage) noGradesMessage.style.display = "none";
 
         grades.forEach((grade, index) => {
             const li = document.createElement("li");
             li.textContent = `${grade.subject}: ${grade.score}%`;
 
+            // Add the "Remove" button only on the Grade Tracker page
             if (gradeList.classList.contains("editable")) {
                 const removeButton = document.createElement("button");
                 removeButton.textContent = "Remove";
@@ -117,7 +119,7 @@ function addGrade() {
 
 function removeGrade(index) {
     const grades = JSON.parse(localStorage.getItem("grades")) || [];
-    grades.splice(index, 1);
+    grades.splice(index, 1); // Remove the grade at the given index
     localStorage.setItem("grades", JSON.stringify(grades));
 
     loadGrades();
@@ -136,8 +138,8 @@ function loadProjects() {
     } else {
         noProjectsMessages.forEach((message) => (message.style.display = "none"));
 
-        projectContainers.forEach((container) => {
-            projects.forEach((project, index) => {
+        projects.forEach((project, index) => {
+            projectContainers.forEach((container) => {
                 const projectDiv = document.createElement("div");
                 projectDiv.classList.add("portfolio-item");
 
@@ -147,6 +149,7 @@ function loadProjects() {
                 const description = document.createElement("p");
                 description.textContent = project.description;
 
+                // Add the "Remove" button only on the Portfolio page
                 if (container.classList.contains("editable")) {
                     const removeButton = document.createElement("button");
                     removeButton.textContent = "Remove";
@@ -187,7 +190,7 @@ function addProject() {
 
 function removeProject(index) {
     const projects = JSON.parse(localStorage.getItem("projects")) || [];
-    projects.splice(index, 1);
+    projects.splice(index, 1); // Remove the project at the given index
     localStorage.setItem("projects", JSON.stringify(projects));
 
     loadProjects();
