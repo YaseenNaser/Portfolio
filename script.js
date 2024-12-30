@@ -75,6 +75,15 @@ function addTask() {
     const taskList = document.getElementById("taskList");
     const li = document.createElement("li");
     li.textContent = task;
+
+    // Add "Remove" button
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.onclick = () => {
+        removeTask(tasks.indexOf(task));
+    };
+    li.appendChild(removeButton);
+
     applyDarkModeClass(li); // Apply Dark Mode class if active
 
     // Append the task to the list
@@ -143,6 +152,15 @@ function addGrade() {
     const gradeList = document.getElementById("gradeList");
     const li = document.createElement("li");
     li.textContent = `${subject}: ${score}%`;
+
+    // Add "Remove" button
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.onclick = () => {
+        removeGrade(grades.findIndex(g => g.subject === subject && g.score === score));
+    };
+    li.appendChild(removeButton);
+
     applyDarkModeClass(li); // Apply Dark Mode class if active
 
     // Append the grade to the list
@@ -234,8 +252,17 @@ function addProject() {
     const descriptionElement = document.createElement("p");
     descriptionElement.textContent = description;
 
+    // Add "Remove" button
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.onclick = () => {
+        removeProject(projects.findIndex(p => p.title === title && p.description === description));
+    };
     projectDiv.appendChild(titleElement);
     projectDiv.appendChild(descriptionElement);
+    projectDiv.appendChild(removeButton);
+
+    // Append the project to the container
     projectContainer.appendChild(projectDiv);
 
     titleInput.value = "";
