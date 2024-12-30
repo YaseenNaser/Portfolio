@@ -33,6 +33,17 @@ function applyDarkModeClassToChildren(parentElement) {
     Array.from(parentElement.children).forEach((child) => applyDarkModeClass(child));
 }
 
+function reapplyDarkMode(containerSelector) {
+    if (document.body.classList.contains("dark-mode")) {
+        const container = document.querySelector(containerSelector);
+        if (container) {
+            Array.from(container.children).forEach((child) => {
+                applyDarkModeClass(child);
+            });
+        }
+    }
+}
+
 // TASK ORGANIZER FUNCTIONS
 function loadTasks() {
     const taskList = document.getElementById("taskList");
@@ -97,14 +108,18 @@ function addTask() {
     taskList.appendChild(li);
 
     taskInput.value = ""; // Clear the input field
+    reapplyDarkMode("#taskList");
 }
 
 function removeTask(index) {
     const tasks = getFromLocalStorage("tasks");
-    tasks.splice(index, 1);
+    tasks.splice(index, 1); // Remove the task at the specified index
     saveToLocalStorage("tasks", tasks);
 
     loadTasks();
+
+    // Reapply Dark Mode
+    reapplyDarkMode("#taskList");
 }
 
 // GRADE TRACKER FUNCTIONS
@@ -175,14 +190,18 @@ function addGrade() {
 
     subjectInput.value = "";
     gradeInput.value = "";
+    reapplyDarkMode("#gradeList");
 }
 
 function removeGrade(index) {
     const grades = getFromLocalStorage("grades");
-    grades.splice(index, 1);
+    grades.splice(index, 1); // Remove the grade at the specified index
     saveToLocalStorage("grades", grades);
 
     loadGrades();
+
+    // Reapply Dark Mode
+    reapplyDarkMode("#gradeList");
 }
 
 // PROJECT FUNCTIONS
@@ -231,17 +250,16 @@ function loadProjects() {
     }
 }
 
-function addProject() {
-    const titleInput = document.getElementById("projectTitle");
-    const descriptionInput = document.getElementById("projectDescription");
+function removeProject(index) {
+    const projects = getFromLocalStorage("projects");
+    projects.splice(index, 1); // Remove the project at the specified index
+    saveToLocalStorage("projects", projects);
 
-    const title = titleInput.value.trim();
-    const description = descriptionInput.value.trim();
+    loadProjects();
 
-    if (title === "" || description === "") {
-        alert("Please enter both title and description!");
-        return;
-    }
+    // Reapply Dark Mode
+    reapplyDarkMode(".portfolio-container");
+}
 
     const projects = getFromLocalStorage("projects");
     projects.push({ title, description });
@@ -279,11 +297,21 @@ function addProject() {
 
 function removeProject(index) {
     const projects = getFromLocalStorage("projects");
-    projects.splice(index, 1);
+    projects.splice(index, 1); // Remove the project at the specified index
     saveToLocalStorage("projects", projects);
 
+    // Reload the project list
     loadProjects();
+
+    // Reapply Dark Mode to all projects
+    const projectContainer = document.querySelector(".portfolio-container");
+    if (projectContainer) {
+        Array.from(projectContainer.children).forEach((child) => {
+            applyDarkModeClass(child);
+        });
+    }
 }
+
 
 // CONTACT FORM FUNCTION
 function initContactForm() {
