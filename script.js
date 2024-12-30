@@ -1,4 +1,11 @@
-// Function to load tasks from localStorage
+document.addEventListener("DOMContentLoaded", function () {
+    // Load data based on the page
+    if (document.getElementById("taskList")) loadTasks();
+    if (document.getElementById("gradeList")) loadGrades();
+    if (document.querySelector(".portfolio-container")) loadProjects();
+});
+
+// TASK ORGANIZER FUNCTIONS
 function loadTasks() {
     const taskList = document.getElementById("taskList");
     taskList.innerHTML = ""; // Clear the current list
@@ -21,7 +28,6 @@ function loadTasks() {
     });
 }
 
-// Function to add a task
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const task = taskInput.value.trim();
@@ -43,7 +49,6 @@ function addTask() {
     loadTasks();
 }
 
-// Function to remove a task
 function removeTask(index) {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.splice(index, 1); // Remove the task at the given index
@@ -53,11 +58,7 @@ function removeTask(index) {
     loadTasks();
 }
 
-// Load tasks when the page loads
-document.addEventListener("DOMContentLoaded", loadTasks);
-
-
-// Function to load grades from localStorage
+// GRADE TRACKER FUNCTIONS
 function loadGrades() {
     const gradeList = document.getElementById("gradeList");
     gradeList.innerHTML = ""; // Clear the current list
@@ -78,17 +79,18 @@ function loadGrades() {
         li.appendChild(removeButton);
         gradeList.appendChild(li);
     });
+
+    updateChart(grades);
 }
 
-// Function to add a grade
 function addGrade() {
     const subjectInput = document.getElementById("subjectInput");
     const gradeInput = document.getElementById("gradeInput");
 
     const subject = subjectInput.value.trim();
-    const score = gradeInput.value.trim();
+    const score = parseFloat(gradeInput.value.trim());
 
-    if (subject === "" || score === "") {
+    if (subject === "" || isNaN(score)) {
         alert("Please enter both subject and grade!");
         return;
     }
@@ -106,7 +108,6 @@ function addGrade() {
     loadGrades();
 }
 
-// Function to remove a grade
 function removeGrade(index) {
     const grades = JSON.parse(localStorage.getItem("grades")) || [];
     grades.splice(index, 1); // Remove the grade at the given index
@@ -116,13 +117,11 @@ function removeGrade(index) {
     loadGrades();
 }
 
-// Load grades when the page loads
-document.addEventListener("DOMContentLoaded", loadGrades);
-
-
-// Function to update the chart
-function updateChart() {
+function updateChart(grades) {
     const ctx = document.getElementById("gradeChart").getContext("2d");
+
+    const subjects = grades.map((grade) => grade.subject);
+    const scores = grades.map((grade) => grade.score);
 
     if (window.gradeChart) {
         window.gradeChart.destroy();
@@ -135,7 +134,7 @@ function updateChart() {
             datasets: [
                 {
                     label: "Grades",
-                    data: grades,
+                    data: scores,
                     backgroundColor: "rgba(0, 120, 215, 0.7)",
                     borderColor: "rgba(0, 120, 215, 1)",
                     borderWidth: 1,
@@ -153,57 +152,42 @@ function updateChart() {
     });
 }
 
-// Handle contact form submission
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    // Display feedback
-    const feedback = document.getElementById("formFeedback");
-    feedback.style.display = "block";
-
-    // Clear form fields
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("message").value = "";
-
-    // Hide feedback after a few seconds (optional)
-    setTimeout(() => {
-        feedback.style.display = "none";
-    }, 3000);
-});
-
-// Function to load projects from localStorage
+// PROJECT FUNCTIONS
 function loadProjects() {
     const projectContainer = document.querySelector(".portfolio-container");
+    const noProjectsMessage = document.getElementById("noProjectsMessage");
+
     projectContainer.innerHTML = ""; // Clear the current list
 
-    // Get projects from localStorage
     const projects = JSON.parse(localStorage.getItem("projects")) || [];
 
-    // Render projects in the UI
-    projects.forEach((project, index) => {
-        const projectDiv = document.createElement("div");
-        projectDiv.classList.add("portfolio-item");
+    if (projects.length === 0) {
+        noProjectsMessage.style.display = "block";
+    } else {
+        noProjectsMessage.style.display = "none";
 
-        const title = document.createElement("h3");
-        title.textContent = project.title;
+        projects.forEach((project, index) => {
+            const projectDiv = document.createElement("div");
+            projectDiv.classList.add("portfolio-item");
 
-        const description = document.createElement("p");
-        description.textContent = project.description;
+            const title = document.createElement("h3");
+            title.textContent = project.title;
 
-        // Add a remove button to each project
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "Remove";
-        removeButton.onclick = () => removeProject(index);
+            const description = document.createElement("p");
+            description.textContent = project.description;
 
-        projectDiv.appendChild(title);
-        projectDiv.appendChild(description);
-        projectDiv.appendChild(removeButton);
-        projectContainer.appendChild(projectDiv);
-    });
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.onclick = () => removeProject(index);
+
+            projectDiv.appendChild(title);
+            projectDiv.appendChild(description);
+            projectDiv.appendChild(removeButton);
+            projectContainer.appendChild(projectDiv);
+        });
+    }
 }
 
-// Function to add a project
 function addProject() {
     const titleInput = document.getElementById("projectTitle");
     const descriptionInput = document.getElementById("projectDescription");
@@ -216,57 +200,44 @@ function addProject() {
         return;
     }
 
-    // Save the project to localStorage
     const projects = JSON.parse(localStorage.getItem("projects")) || [];
     projects.push({ title, description });
     localStorage.setItem("projects", JSON.stringify(projects));
 
-    // Clear the input fields
     titleInput.value = "";
     descriptionInput.value = "";
 
-    // Reload projects
     loadProjects();
 }
 
-// Function to remove a project
 function removeProject(index) {
     const projects = JSON.parse(localStorage.getItem("projects")) || [];
-    projects.splice(index, 1); // Remove the project at the given index
+    projects.splice(index, 1);
     localStorage.setItem("projects", JSON.stringify(projects));
 
-    // Reload projects
     loadProjects();
 }
 
-// Load projects when the page loads
-document.addEventListener("DOMContentLoaded", loadProjects);
-
-// Handle the form submission
+// CONTACT FORM FUNCTION
 document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form from reloading the page
+    event.preventDefault();
 
-    // Collect form data
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // Debug: Log values to console
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
-
-    // Validate form inputs
     if (!name || !email || !message) {
         alert("Please fill in all fields.");
         return;
     }
 
-    // Simulate successful submission
     const feedback = document.getElementById("formFeedback");
     feedback.textContent = `Thank you, ${name}! Your message has been received.`;
     feedback.style.display = "block";
 
-    // Clear the form
     document.getElementById("contactForm").reset();
+
+    setTimeout(() => {
+        feedback.style.display = "none";
+    }, 3000);
 });
