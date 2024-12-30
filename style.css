@@ -507,21 +507,20 @@ body.dark-mode .portfolio-container {
 /* Task Container in Dark Mode */
 body.dark-mode .task-container {
     background-color: #1e1e1e; /* Dark background */
-    border: none
+    border: none;
     color: #f1f1f1; /* Light text */
 }
 
 /* Grade Container in Dark Mode */
 body.dark-mode .grade-container {
     background-color: #1e1e1e; /* Dark background */
-    border: none
+    border: none;
     color: #f1f1f1; /* Light text */
 }
 
 /* Contact Container in Dark Mode */
 body.dark-mode .contact-container {
     background-color: #1e1e1e; /* Dark background */
-    border: 1px solid #444; /* Subtle border */
     color: #f1f1f1; /* Light text */
 }
 
