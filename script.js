@@ -151,34 +151,32 @@ function loadProjects() {
     } else {
         noProjectsMessages.forEach((message) => (message.style.display = "none"));
 
-        const fragment = document.createDocumentFragment();
+        projectContainers.forEach((container) => {
+            projects.forEach((project, index) => {
+                const projectDiv = document.createElement("div");
+                projectDiv.classList.add("portfolio-item");
 
-        projects.forEach((project, index) => {
-            const projectDiv = document.createElement("div");
-            projectDiv.classList.add("portfolio-item");
+                const title = document.createElement("h3");
+                title.textContent = project.title;
 
-            const title = document.createElement("h3");
-            title.textContent = project.title;
+                const description = document.createElement("p");
+                description.textContent = project.description;
 
-            const description = document.createElement("p");
-            description.textContent = project.description;
+                // Add the Remove button below the content
+                if (container.classList.contains("editable")) {
+                    const removeButton = document.createElement("button");
+                    removeButton.textContent = "Remove";
+                    removeButton.onclick = () => {
+                        removeProject(index); // Call the remove function
+                    };
+                    projectDiv.appendChild(removeButton); // Append the button to the projectDiv
+                }
 
-            projectDiv.appendChild(title);
-            projectDiv.appendChild(description);
-
-            // Add the Remove button below the content
-            if (projectContainers[0].classList.contains("editable")) {
-                const removeButton = document.createElement("button");
-                removeButton.textContent = "Remove";
-                removeButton.onclick = () => removeProject(index);
-                projectDiv.appendChild(removeButton); // Append the button to the projectDiv
-            }
-
-            fragment.appendChild(projectDiv);
+                projectDiv.appendChild(title);
+                projectDiv.appendChild(description);
+                container.appendChild(projectDiv); // Append the project directly to the container
+            });
         });
-
-        // Append the fragment to each container
-        projectContainers.forEach((container) => container.appendChild(fragment.cloneNode(true)));
     }
 }
 
