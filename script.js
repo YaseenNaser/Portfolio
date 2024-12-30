@@ -20,6 +20,12 @@ function saveToLocalStorage(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
 }
 
+function applyDarkModeClass(element) {
+    if (document.body.classList.contains("dark-mode")) {
+        element.classList.add("dark-mode");
+    }
+}
+
 // TASK ORGANIZER FUNCTIONS
 function loadTasks() {
     const taskList = document.getElementById("taskList");
@@ -56,7 +62,7 @@ function addTask() {
     const taskInput = document.getElementById("taskInput");
     const task = taskInput.value.trim();
 
-    if (!task) {
+    if (task === "") {
         alert("Please enter a task!");
         return;
     }
@@ -65,8 +71,16 @@ function addTask() {
     tasks.push(task);
     saveToLocalStorage("tasks", tasks);
 
-    taskInput.value = ""; // Clear input field
-    loadTasks();
+    // Create the task element
+    const taskList = document.getElementById("taskList");
+    const li = document.createElement("li");
+    li.textContent = task;
+    applyDarkModeClass(li); // Apply Dark Mode class if active
+
+    // Append the task to the list
+    taskList.appendChild(li);
+
+    taskInput.value = ""; // Clear the input field
 }
 
 function removeTask(index) {
