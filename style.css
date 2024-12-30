@@ -593,3 +593,9 @@ body.dark-mode #gradeList li {
     color: #f1f1f1; /* Light text for contrast */
     border: 1px solid #444; /* Subtle border */
 }
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f1f1f1; /* Light
+}
