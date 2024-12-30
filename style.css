@@ -484,7 +484,7 @@ body.dark-mode main > section p {
 /* Lists within sections in Dark Mode */
 body.dark-mode main > section ul {
     background-color: #1e1e1e;
-    /* border: 1px solid #444; */
+    /* border: 1px solid #444;  */
     color: #f1f1f1;
 }
 
