@@ -596,6 +596,6 @@ body.dark-mode #gradeList li {
 
 /* Dark Mode */
 body.dark-mode {
-    background-color: #1e1e1e; /* Dark background */
+    background-color: #000000; /* Dark background */
     color: #f1f1f1; /* Light
 }
