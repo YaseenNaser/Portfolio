@@ -378,3 +378,63 @@ footer {
         width: 100%;
     }
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+header.dark-mode {
+    background-color: #1e1e1e;
+}
+
+footer.dark-mode {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+
+.portfolio-item.dark-mode {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+
+nav ul li a.dark-mode {
+    color: #f1f1f1;
+}
+
+nav ul li a.dark-mode:hover {
+    color: var(--secondary-color);
+}
+
+button {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.dark-mode {
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    position: absolute; /* Position within the header */
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    background: none; /* Remove default button styling */
+    border: none;
+    font-size: 1.5rem; /* Larger icon size */
+    cursor: pointer;
+    color: var(--white);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--secondary-color);
+    transform: translateY(-50%) scale(1.2); /* Slight zoom on hover */
+}
+
+body.dark-mode .theme-toggle {
+    color: #f1f1f1; /* Change icon color in dark mode */
+}
