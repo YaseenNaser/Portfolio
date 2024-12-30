@@ -468,3 +468,33 @@ button.dark-mode:hover {
 body.dark-mode .theme-toggle {
     color: #f1f1f1; /* Change icon color in Dark Mode */
 }
+
+/* Dark Mode: Sections */
+body.dark-mode main > section {
+    background-color: #1e1e1e; /* Dark background for sections */
+    border: 1px solid #444; /* Subtle border for sections */
+    color: #f1f1f1; /* Light text for contrast */
+}
+
+/* Ensure consistent padding and spacing */
+body.dark-mode main > section h2,
+body.dark-mode main > section p {
+    color: #f1f1f1; /* Ensure text within sections is readable */
+}
+
+/* Lists within sections in Dark Mode */
+body.dark-mode main > section ul {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    color: #f1f1f1;
+}
+
+/* Inputs and buttons in sections */
+body.dark-mode main > section input,
+body.dark-mode main > section textarea,
+body.dark-mode main > section button {
+    background-color: #333; /* Dark input and button background */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid #555; /* Subtle border for contrast */
+}
+
