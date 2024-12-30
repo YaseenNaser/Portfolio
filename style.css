@@ -31,7 +31,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100%;
 }
 
 .container {
@@ -592,10 +592,4 @@ body.dark-mode #gradeList li {
     background-color: #1e1e1e; /* Dark background for grade items */
     color: #f1f1f1; /* Light text for contrast */
     border: 1px solid #444; /* Subtle border */
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #000000; /* Dark background */
-    color: #f1f1f1; /* Light
 }
