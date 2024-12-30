@@ -5,93 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 </head>
-    
 <body>
- <header>
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="organizer.html">Task Organizer</a></li>
-            <li><a href="grades.html">Grade Tracker</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="organizer.html">Task Organizer</a></li>
+                <li><a href="grades.html">Grade Tracker</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        
         <section id="home">
             <h1>Welcome to My Student Organizer</h1>
             <p>Showcase your projects, track tasks, and stay on top of your grades!</p>
         </section>
-        
+
         <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-container">
-        <p id="noProjectsMessage">No projects added yet. Add your first project below!</p>
-    </div>
-    <div class="add-project-form">
-        <label for="projectTitle">Project Title</label>
-        <input type="text" id="projectTitle" placeholder="Project Title">
-        
-        <label for="projectDescription">Project Description</label>
-        <textarea id="projectDescription" placeholder="Project Description"></textarea>
-        
-        <button onclick="addProject()">Add Project</button>
-    </div>
-</section>
-        
+            <h2>Portfolio</h2>
+            <div class="portfolio-container">
+                <p id="noProjectsMessage">No projects added yet. Add projects on the Portfolio page.</p>
+            </div>
+        </section>
+
         <section id="organizer">
-    <h2>Task Organizer</h2>
-    <div class="task-container">
-        <input type="text" id="taskInput" placeholder="Enter a new task">
-        <button onclick="addTask()">Add Task</button>
-        <ul id="taskList"></ul>
-    </div>
-</section>
-        
-<section id="grades">
-    <h2>Grade Tracker</h2>
-    <div class="grade-container">
-        <input type="text" id="subjectInput" placeholder="Subject Name">
-        <input type="number" id="gradeInput" placeholder="Grade (%)">
-        <button onclick="addGrade()">Add Grade</button>
-        <ul id="gradeList"></ul>
-    </div>
-</section>
+            <h2>Task Organizer</h2>
+            <ul id="taskList">
+                <p id="noTasksMessage">No tasks added yet. Add tasks on the Task Organizer page.</p>
+            </ul>
+        </section>
 
-        
-<section id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact-container">
-        <form id="contactForm">
-    <label for="name">Name</label>
-    <input type="text" id="name" placeholder="Your Name" required>
+        <section id="grades">
+            <h2>Grade Tracker</h2>
+            <ul id="gradeList">
+                <p id="noGradesMessage">No grades added yet. Add grades on the Grade Tracker page.</p>
+            </ul>
+        </section>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" placeholder="Your Email" required>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <form id="contactForm">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
 
-    <label for="message">Message</label>
-    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
 
-    <button type="submit">Send Message</button>
-</form>
-<p id="formFeedback" style="display: none; color: green;">Thank you! Your message has been received.</p>
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
 
-        <p id="formFeedback" style="display: none; color: green;">Thank you! Your message has been received.</p>
-    </div>
-</section>
-
-
-
+                    <button type="submit">Send Message</button>
+                </form>
+                <p id="formFeedback" style="display: none; color: green;" aria-live="polite">
+                    Thank you! Your message has been received.
+                </p>
+            </div>
+        </section>
     </main>
+
     <footer>
         <p>&copy; 2024 Student Portfolio & Organizer</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
