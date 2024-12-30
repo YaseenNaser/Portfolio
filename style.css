@@ -579,3 +579,17 @@ body.dark-mode #contact {
 body.dark-mode #contactForm {
     border: none
 }
+
+/* Dark Mode: Task List */
+body.dark-mode #taskList li {
+    background-color: #1e1e1e; /* Dark background for task items */
+    color: #f1f1f1; /* Light text for contrast */
+    border: 1px solid #444; /* Subtle border */
+}
+
+/* Dark Mode: Grade List */
+body.dark-mode #gradeList li {
+    background-color: #1e1e1e; /* Dark background for grade items */
+    color: #f1f1f1; /* Light text for contrast */
+    border: 1px solid #444; /* Subtle border */
+}
