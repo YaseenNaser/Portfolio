@@ -5,37 +5,47 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.querySelector(".portfolio-container")) loadProjects();
 
     // Initialize Contact Form
-    initContactForm();
+    if (document.getElementById("contactForm")) initContactForm();
 });
+
+// Helper: Save and Load from LocalStorage
+function getFromLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key)) || [];
+}
+
+function saveToLocalStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
 
 // TASK ORGANIZER FUNCTIONS
 function loadTasks() {
     const taskList = document.getElementById("taskList");
     const noTasksMessage = document.getElementById("noTasksMessage");
 
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    taskList.innerHTML = ""; // Clear the current list
+    const tasks = getFromLocalStorage("tasks");
+    taskList.innerHTML = ""; // Clear current list
 
     if (tasks.length === 0) {
         if (noTasksMessage) noTasksMessage.style.display = "block";
     } else {
         if (noTasksMessage) noTasksMessage.style.display = "none";
 
+        const fragment = document.createDocumentFragment();
+
         tasks.forEach((task, index) => {
             const li = document.createElement("li");
             li.textContent = task;
 
-            // Add the "Remove" button only on the Task Organizer page
+            // Add "Remove" button if editable
             if (taskList.classList.contains("editable")) {
-                const removeButton = document.createElement("button");
-                removeButton.textContent = "Remove";
-                removeButton.onclick = () => removeTask(index);
-
+                const removeButton = createRemoveButton(() => removeTask(index));
                 li.appendChild(removeButton);
             }
 
-            taskList.appendChild(li);
+            fragment.appendChild(li);
         });
+
+        taskList.appendChild(fragment);
     }
 }
 
@@ -43,23 +53,23 @@ function addTask() {
     const taskInput = document.getElementById("taskInput");
     const task = taskInput.value.trim();
 
-    if (task === "") {
+    if (!task) {
         alert("Please enter a task!");
         return;
     }
 
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const tasks = getFromLocalStorage("tasks");
     tasks.push(task);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    saveToLocalStorage("tasks", tasks);
 
-    taskInput.value = ""; // Clear the input field
+    taskInput.value = ""; // Clear input field
     loadTasks();
 }
 
 function removeTask(index) {
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    tasks.splice(index, 1); // Remove the task at the given index
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    const tasks = getFromLocalStorage("tasks");
+    tasks.splice(index, 1);
+    saveToLocalStorage("tasks", tasks);
 
     loadTasks();
 }
@@ -69,29 +79,30 @@ function loadGrades() {
     const gradeList = document.getElementById("gradeList");
     const noGradesMessage = document.getElementById("noGradesMessage");
 
-    const grades = JSON.parse(localStorage.getItem("grades")) || [];
-    gradeList.innerHTML = ""; // Clear the current list
+    const grades = getFromLocalStorage("grades");
+    gradeList.innerHTML = ""; // Clear current list
 
     if (grades.length === 0) {
         if (noGradesMessage) noGradesMessage.style.display = "block";
     } else {
         if (noGradesMessage) noGradesMessage.style.display = "none";
 
+        const fragment = document.createDocumentFragment();
+
         grades.forEach((grade, index) => {
             const li = document.createElement("li");
             li.textContent = `${grade.subject}: ${grade.score}%`;
 
-            // Add the "Remove" button only on the Grade Tracker page
+            // Add "Remove" button if editable
             if (gradeList.classList.contains("editable")) {
-                const removeButton = document.createElement("button");
-                removeButton.textContent = "Remove";
-                removeButton.onclick = () => removeGrade(index);
-
+                const removeButton = createRemoveButton(() => removeGrade(index));
                 li.appendChild(removeButton);
             }
 
-            gradeList.appendChild(li);
+            fragment.appendChild(li);
         });
+
+        gradeList.appendChild(fragment);
     }
 }
 
@@ -102,25 +113,25 @@ function addGrade() {
     const subject = subjectInput.value.trim();
     const score = parseFloat(gradeInput.value.trim());
 
-    if (subject === "" || isNaN(score)) {
-        alert("Please enter both subject and grade!");
+    if (!subject || isNaN(score)) {
+        alert("Please enter a valid subject and grade!");
         return;
     }
 
-    const grades = JSON.parse(localStorage.getItem("grades")) || [];
+    const grades = getFromLocalStorage("grades");
     grades.push({ subject, score });
-    localStorage.setItem("grades", JSON.stringify(grades));
+    saveToLocalStorage("grades", grades);
 
-    subjectInput.value = ""; // Clear the input fields
+    subjectInput.value = "";
     gradeInput.value = "";
 
     loadGrades();
 }
 
 function removeGrade(index) {
-    const grades = JSON.parse(localStorage.getItem("grades")) || [];
-    grades.splice(index, 1); // Remove the grade at the given index
-    localStorage.setItem("grades", JSON.stringify(grades));
+    const grades = getFromLocalStorage("grades");
+    grades.splice(index, 1);
+    saveToLocalStorage("grades", grades);
 
     loadGrades();
 }
@@ -130,39 +141,38 @@ function loadProjects() {
     const projectContainers = document.querySelectorAll(".portfolio-container");
     const noProjectsMessages = document.querySelectorAll("#noProjectsMessage");
 
-    const projects = JSON.parse(localStorage.getItem("projects")) || [];
-    projectContainers.forEach((container) => (container.innerHTML = "")); // Clear existing content
+    const projects = getFromLocalStorage("projects");
+
+    projectContainers.forEach((container) => (container.innerHTML = ""));
 
     if (projects.length === 0) {
         noProjectsMessages.forEach((message) => (message.style.display = "block"));
     } else {
         noProjectsMessages.forEach((message) => (message.style.display = "none"));
 
+        const fragment = document.createDocumentFragment();
+
         projects.forEach((project, index) => {
-            projectContainers.forEach((container) => {
-                const projectDiv = document.createElement("div");
-                projectDiv.classList.add("portfolio-item");
+            const projectDiv = document.createElement("div");
+            projectDiv.classList.add("portfolio-item");
 
-                const title = document.createElement("h3");
-                title.textContent = project.title;
+            const title = document.createElement("h3");
+            title.textContent = project.title;
 
-                const description = document.createElement("p");
-                description.textContent = project.description;
+            const description = document.createElement("p");
+            description.textContent = project.description;
 
-                // Add the "Remove" button only on the Portfolio page
-                if (container.classList.contains("editable")) {
-                    const removeButton = document.createElement("button");
-                    removeButton.textContent = "Remove";
-                    removeButton.onclick = () => removeProject(index);
+            if (projectContainers[0].classList.contains("editable")) {
+                const removeButton = createRemoveButton(() => removeProject(index));
+                projectDiv.appendChild(removeButton);
+            }
 
-                    projectDiv.appendChild(removeButton);
-                }
-
-                projectDiv.appendChild(title);
-                projectDiv.appendChild(description);
-                container.appendChild(projectDiv);
-            });
+            projectDiv.appendChild(title);
+            projectDiv.appendChild(description);
+            fragment.appendChild(projectDiv);
         });
+
+        projectContainers.forEach((container) => container.appendChild(fragment.cloneNode(true)));
     }
 }
 
@@ -173,14 +183,14 @@ function addProject() {
     const title = titleInput.value.trim();
     const description = descriptionInput.value.trim();
 
-    if (title === "" || description === "") {
-        alert("Please enter both title and description!");
+    if (!title || !description) {
+        alert("Please enter a valid title and description!");
         return;
     }
 
-    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+    const projects = getFromLocalStorage("projects");
     projects.push({ title, description });
-    localStorage.setItem("projects", JSON.stringify(projects));
+    saveToLocalStorage("projects", projects);
 
     titleInput.value = "";
     descriptionInput.value = "";
@@ -189,16 +199,18 @@ function addProject() {
 }
 
 function removeProject(index) {
-    const projects = JSON.parse(localStorage.getItem("projects")) || [];
-    projects.splice(index, 1); // Remove the project at the given index
-    localStorage.setItem("projects", JSON.stringify(projects));
+    const projects = getFromLocalStorage("projects");
+    projects.splice(index, 1);
+    saveToLocalStorage("projects", projects);
 
     loadProjects();
 }
 
 // CONTACT FORM FUNCTION
 function initContactForm() {
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
         const name = document.getElementById("name").value.trim();
@@ -206,7 +218,7 @@ function initContactForm() {
         const message = document.getElementById("message").value.trim();
 
         if (!name || !email || !message) {
-            alert("Please fill in all fields.");
+            alert("All fields are required!");
             return;
         }
 
@@ -214,10 +226,19 @@ function initContactForm() {
         feedback.textContent = `Thank you, ${name}! Your message has been received.`;
         feedback.style.display = "block";
 
-        document.getElementById("contactForm").reset();
+        contactForm.reset();
 
         setTimeout(() => {
             feedback.style.display = "none";
         }, 3000);
     });
+}
+
+// Utility: Create Remove Button
+function createRemoveButton(onClickHandler) {
+    const button = document.createElement("button");
+    button.textContent = "Remove";
+    button.classList.add("btn-danger");
+    button.onclick = onClickHandler;
+    return button;
 }
