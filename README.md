@@ -83,7 +83,3 @@ This project is licensed under the MIT License. Feel free to use, modify, and di
 
 ## **Feedback**
 Have suggestions or found a bug? Feel free to open an issue or submit a pull request. I appreciate your contributions!
-
----
-
-This README is detailed enough to showcase your website’s functionality and guide users on how to use and explore the project. Let me know if you want to customize it further! 😊
