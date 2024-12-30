@@ -154,39 +154,43 @@ function updateChart(grades) {
 
 // PROJECT FUNCTIONS
 function loadProjects() {
-    const projectContainer = document.querySelector(".portfolio-container");
-    const noProjectsMessage = document.getElementById("noProjectsMessage");
+    const projectContainers = document.querySelectorAll(".portfolio-container");
+    const noProjectsMessages = document.querySelectorAll("#noProjectsMessage");
 
-    projectContainer.innerHTML = ""; // Clear the current list
-
+    // Retrieve projects from localStorage
     const projects = JSON.parse(localStorage.getItem("projects")) || [];
 
+    // Clear existing content in all portfolio containers
+    projectContainers.forEach((container) => (container.innerHTML = ""));
+
     if (projects.length === 0) {
-        noProjectsMessage.style.display = "block";
+        noProjectsMessages.forEach((message) => (message.style.display = "block"));
     } else {
-        noProjectsMessage.style.display = "none";
+        noProjectsMessages.forEach((message) => (message.style.display = "none"));
 
-        projects.forEach((project, index) => {
-            const projectDiv = document.createElement("div");
-            projectDiv.classList.add("portfolio-item");
+        // Render projects in all portfolio containers
+        projectContainers.forEach((container) => {
+            projects.forEach((project) => {
+                const projectDiv = document.createElement("div");
+                projectDiv.classList.add("portfolio-item");
 
-            const title = document.createElement("h3");
-            title.textContent = project.title;
+                const title = document.createElement("h3");
+                title.textContent = project.title;
 
-            const description = document.createElement("p");
-            description.textContent = project.description;
+                const description = document.createElement("p");
+                description.textContent = project.description;
 
-            const removeButton = document.createElement("button");
-            removeButton.textContent = "Remove";
-            removeButton.onclick = () => removeProject(index);
+                projectDiv.appendChild(title);
+                projectDiv.appendChild(description);
 
-            projectDiv.appendChild(title);
-            projectDiv.appendChild(description);
-            projectDiv.appendChild(removeButton);
-            projectContainer.appendChild(projectDiv);
+                container.appendChild(projectDiv);
+            });
         });
     }
 }
+
+// Call loadProjects() on page load
+document.addEventListener("DOMContentLoaded", loadProjects);
 
 function addProject() {
     const titleInput = document.getElementById("projectTitle");
