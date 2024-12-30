@@ -380,51 +380,81 @@ footer {
 }
 
 /* Dark Mode Styles */
+/* Dark Mode Styles */
 body.dark-mode {
-    background-color: #121212;
-    color: #f1f1f1;
+    background-color: #121212; /* Dark background for the body */
+    color: #f1f1f1; /* Light text for contrast */
 }
 
+/* Header in Dark Mode */
 header.dark-mode {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Dark header background */
+    color: #f1f1f1;
 }
 
+/* Footer in Dark Mode */
 footer.dark-mode {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Dark footer background */
     color: #f1f1f1;
 }
 
-.portfolio-item.dark-mode {
-    background-color: #1e1e1e;
-    border: 1px solid #444;
-}
-
+/* Navigation Links in Dark Mode */
 nav ul li a.dark-mode {
-    color: #f1f1f1;
+    color: #f1f1f1; /* Light text for navigation links */
 }
 
 nav ul li a.dark-mode:hover {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Highlight on hover */
 }
 
-button {
-    transition: background-color 0.3s, color 0.3s;
+/* Inputs and Textareas in Dark Mode */
+input.dark-mode,
+textarea.dark-mode {
+    background-color: #333; /* Dark background for inputs */
+    color: #f1f1f1; /* Light text for readability */
+    border: 1px solid #555; /* Darker border for inputs */
 }
 
+input.dark-mode::placeholder,
+textarea.dark-mode::placeholder {
+    color: #888; /* Subtle placeholder color */
+}
+
+/* Buttons in Dark Mode */
 button.dark-mode {
-    background-color: #333;
-    color: #f1f1f1;
+    background-color: #444; /* Dark background for buttons */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid #555; /* Subtle border */
+}
+
+button.dark-mode:hover {
+    background-color: #555; /* Slightly lighter hover effect */
+}
+
+/* Portfolio Items in Dark Mode */
+.portfolio-item.dark-mode {
+    background-color: #1e1e1e; /* Dark background for project items */
+    border: 1px solid #444; /* Darker border */
+    color: #f1f1f1; /* Light text */
+}
+
+/* Lists in Dark Mode (e.g., Tasks, Grades) */
+#taskList.dark-mode li,
+#gradeList.dark-mode li {
+    background-color: #1e1e1e; /* Dark list background */
+    border: 1px solid #444; /* Darker border */
+    color: #f1f1f1; /* Light text */
 }
 
 /* Dark Mode Toggle Button */
 .theme-toggle {
-    position: absolute; /* Position within the header */
+    position: absolute;
     top: 50%;
     right: 1rem;
     transform: translateY(-50%);
-    background: none; /* Remove default button styling */
+    background: none;
     border: none;
-    font-size: 1.5rem; /* Larger icon size */
+    font-size: 1.5rem;
     cursor: pointer;
     color: var(--white);
     transition: color 0.3s ease, transform 0.3s ease;
@@ -432,9 +462,9 @@ button.dark-mode {
 
 .theme-toggle:hover {
     color: var(--secondary-color);
-    transform: translateY(-50%) scale(1.2); /* Slight zoom on hover */
+    transform: translateY(-50%) scale(1.2);
 }
 
 body.dark-mode .theme-toggle {
-    color: #f1f1f1; /* Change icon color in dark mode */
+    color: #f1f1f1; /* Change icon color in Dark Mode */
 }
