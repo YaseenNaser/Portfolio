@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize Contact Form
     if (document.getElementById("contactForm")) initContactForm();
+
+    // Initialize Theme Toggle
+    initThemeToggle();
 });
 
 // Helper: Save and Load from LocalStorage
@@ -247,4 +250,24 @@ function createRemoveButton(onClickHandler) {
     button.classList.add("btn-danger");
     button.onclick = onClickHandler;
     return button;
+}
+
+function initThemeToggle() {
+    const themeToggle = document.getElementById("themeToggle");
+    const darkModeEnabled = localStorage.getItem("darkMode") === "true";
+
+    // Apply saved theme on load
+    if (darkModeEnabled) {
+        document.body.classList.add("dark-mode");
+        themeToggle.textContent = "☀️"; // Sun icon for toggling Light Mode
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener("click", () => {
+        const isDarkMode = document.body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode); // Save preference in localStorage
+
+        // Update button icon
+        themeToggle.textContent = isDarkMode ? "☀️" : "🌙";
+    });
 }
