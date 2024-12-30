@@ -1,111 +1,101 @@
+:root {
+    --primary-color: #0078d7;
+    --secondary-color: #ffdd57;
+    --background-light: #f4f4f9;
+    --background-dark: #333;
+    --text-color: #333;
+    --white: #fff;
+    --danger-color: #f44336;
+    --danger-hover: #d32f2f;
+    --border-radius: 8px;
+}
+
+/* Global Styles */
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* Full viewport height */
-    width: 100%; /* Full viewport width */
-}
-
-
-html {
-    overflow-y: scroll; /* Ensures a vertical scrollbar is always visible */
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body always fills the viewport */
+    height: 100%;
+    width: 100%;
     font-family: Arial, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    box-sizing: inherit;
 }
 
-/* Header styles */
+.container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Header Styles */
 header {
-    background-color: #0078d7;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
     padding: 1rem 0;
     text-align: center;
 }
 
 nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 15px; /* Standardize spacing */
-}
-
-nav ul li {
-    margin: 0;
+    gap: 15px;
 }
 
 nav ul li a {
-    color: white; /* Default color for links */
+    color: var(--white);
     text-decoration: none;
     font-weight: bold;
-    font-size: 1rem; /* Set consistent font size */
-    transition: color 0.3s ease; /* Smooth hover effect */
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
+nav ul li a:hover,
 nav ul li a.active {
-    color: #ffdd57; /* Highlight color for active links */
-    border-bottom: 2px solid #ffdd57;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
 }
 
-
+/* Main Content */
 main {
-    flex-grow: 1; /* Allow main to take up remaining space between header and footer */
-    width: 100%; /* Ensure full width */
-    max-width: 1200px; /* Limit content width for better readability */
-    margin: 0 auto; /* Center horizontally */
-    padding: 2rem; /* Add padding for spacing */
-    box-sizing: border-box; /* Include padding in width calculations */
-}
-
-
-/* Prevent children of main from squeezing */
-main > * {
-    max-width: 1200px; /* Limit the width of content */
-    width: 100%; /* Ensure content spans full width when smaller */
-    text-align: center; /* Align text properly */
-    margin: 0 auto; /* Center the children horizontally */
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 main > section {
-    width: 100%; /* Ensure full width */
-    padding: 2rem 1rem; /* Add consistent padding */
-    box-sizing: border-box; /* Include padding in width calculations */
-    background: none; /* Clear unnecessary background from global styles */
-    text-align: center; /* Default text alignment */
-}
-
-
-/* Footer styles */
-footer {
-    background: #333;
-    color: white;
+    padding: 2rem 1rem;
     text-align: center;
-    padding: 1rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
 }
 
+/* Portfolio Section */
 .portfolio-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
     padding: 1rem;
-    background-color: #eef;
-    border-radius: 8px;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
 }
 
 .portfolio-item {
-    background: white;
+    background: var(--white);
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     padding: 1rem;
     width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -113,21 +103,21 @@ footer {
 }
 
 .portfolio-item h3 {
-    color: #0078d7;
+    color: var(--primary-color);
 }
 
 .portfolio-item button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #f44336;
-    color: white;
+    background-color: var(--danger-color);
+    color: var(--white);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
 }
 
 .portfolio-item button:hover {
-    background-color: #d32f2f;
+    background-color: var(--danger-hover);
 }
 
 .add-project-form {
@@ -144,15 +134,15 @@ footer {
 .add-project-form textarea {
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
 }
 
 .add-project-form button {
     padding: 0.7rem;
-    background-color: #0078d7;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
 }
 
@@ -160,12 +150,11 @@ footer {
     background-color: #005a9e;
 }
 
-
+/* Task Organizer Section */
 #organizer {
     background: #fef;
     padding: 2rem 1rem;
 }
-
 
 #organizer h2 {
     color: #d70078;
@@ -188,7 +177,7 @@ footer {
 button {
     padding: 0.5rem 1rem;
     background-color: #d70078;
-    color: white;
+    color: var(--white);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -206,7 +195,7 @@ button:hover {
 
 #taskList li {
     padding: 0.5rem;
-    background: #fff;
+    background: var(--white);
     margin-bottom: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -216,8 +205,8 @@ button:hover {
 }
 
 #taskList li button {
-    background: #f00;
-    color: white;
+    background: var(--danger-color);
+    color: var(--white);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -225,29 +214,30 @@ button:hover {
 }
 
 #taskList li button:hover {
-    background: #c00;
+    background: var(--danger-hover);
 }
 
+/* Grade Tracker Section */
 #grades {
-    background: #eef;
+    background: var(--background-light);
     padding: 2rem 1rem;
     text-align: center;
 }
 
 #grades h2 {
-    color: #0078d7;
+    color: var(--primary-color);
 }
 
 .grade-container {
     max-width: 600px;
-    margin: 0 auto; /* Center horizontally */
-    text-align: left; /* Align text properly */
+    margin: 0 auto;
+    text-align: left;
     box-sizing: border-box;
 }
 
 #subjectInput, #gradeInput {
-    width: calc(50% - 10px); /* Split inputs evenly */
-    margin-right: 10px; /* Space between inputs */
+    width: calc(50% - 10px);
+    margin-right: 10px;
 }
 
 #gradeList {
@@ -258,24 +248,20 @@ button:hover {
 
 #gradeList li {
     padding: 0.5rem;
-    background: #fff;
+    background: var(--white);
     margin-bottom: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#gradeChart {
-    margin-top: 1rem;
-}
-
+/* Contact Section */
 #contact {
     background: #f4f9f9;
     padding: 2rem 1rem;
 }
 
-
 #contact h2 {
-    color: #0078d7;
+    color: var(--primary-color);
 }
 
 .contact-container {
@@ -297,17 +283,17 @@ form label {
 form input, form textarea {
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     margin-bottom: 1rem;
     width: 100%;
 }
 
 form button {
     padding: 0.7rem;
-    background-color: #0078d7;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     font-size: 1rem;
 }
@@ -319,27 +305,25 @@ form button:hover {
 #formFeedback {
     margin-top: 1rem;
     font-size: 1rem;
-    color: #0078d7;
-}
-
-/* Main container for content */
-.container {
-    flex-grow: 1; /* Make this container grow to fill the available space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically if the page is short */
-}
-
-@media (max-width: 768px) {
-    main {
-        padding: 1rem; /* Reduce padding on smaller screens */
-        text-align: left; /* Optional: Align text to the left */
-    }
-}
-
-#formFeedback {
-    margin-top: 1rem;
-    font-size: 1rem;
     color: green;
     text-align: center;
+}
+
+/* Footer Styles */
+footer {
+    background: var(--background-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    .portfolio-item {
+        width: 100%;
+    }
 }
