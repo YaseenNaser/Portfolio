@@ -130,8 +130,8 @@ function addGrade() {
     const subject = subjectInput.value.trim();
     const score = parseFloat(gradeInput.value.trim());
 
-    if (!subject || isNaN(score)) {
-        alert("Please enter a valid subject and grade!");
+    if (subject === "" || isNaN(score)) {
+        alert("Please enter both subject and grade!");
         return;
     }
 
@@ -139,10 +139,17 @@ function addGrade() {
     grades.push({ subject, score });
     saveToLocalStorage("grades", grades);
 
+    // Create the grade element
+    const gradeList = document.getElementById("gradeList");
+    const li = document.createElement("li");
+    li.textContent = `${subject}: ${score}%`;
+    applyDarkModeClass(li); // Apply Dark Mode class if active
+
+    // Append the grade to the list
+    gradeList.appendChild(li);
+
     subjectInput.value = "";
     gradeInput.value = "";
-
-    loadGrades();
 }
 
 function removeGrade(index) {
@@ -206,8 +213,8 @@ function addProject() {
     const title = titleInput.value.trim();
     const description = descriptionInput.value.trim();
 
-    if (!title || !description) {
-        alert("Please enter a valid title and description!");
+    if (title === "" || description === "") {
+        alert("Please enter both title and description!");
         return;
     }
 
@@ -215,10 +222,24 @@ function addProject() {
     projects.push({ title, description });
     saveToLocalStorage("projects", projects);
 
+    // Create the project element
+    const projectContainer = document.querySelector(".portfolio-container");
+    const projectDiv = document.createElement("div");
+    projectDiv.classList.add("portfolio-item");
+    applyDarkModeClass(projectDiv); // Apply Dark Mode class if active
+
+    const titleElement = document.createElement("h3");
+    titleElement.textContent = title;
+
+    const descriptionElement = document.createElement("p");
+    descriptionElement.textContent = description;
+
+    projectDiv.appendChild(titleElement);
+    projectDiv.appendChild(descriptionElement);
+    projectContainer.appendChild(projectDiv);
+
     titleInput.value = "";
     descriptionInput.value = "";
-
-    loadProjects();
 }
 
 function removeProject(index) {
