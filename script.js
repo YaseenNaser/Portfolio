@@ -259,7 +259,6 @@ function removeProject(index) {
 
     // Reapply Dark Mode
     reapplyDarkMode(".portfolio-container");
-}
 
     const projects = getFromLocalStorage("projects");
     projects.push({ title, description });
