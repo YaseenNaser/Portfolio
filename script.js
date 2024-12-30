@@ -29,6 +29,10 @@ function applyDarkModeClass(element) {
     }
 }
 
+function applyDarkModeClassToChildren(parentElement) {
+    Array.from(parentElement.children).forEach((child) => applyDarkModeClass(child));
+}
+
 // TASK ORGANIZER FUNCTIONS
 function loadTasks() {
     const taskList = document.getElementById("taskList");
