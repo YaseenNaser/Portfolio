@@ -380,7 +380,6 @@ footer {
 }
 
 /* Dark Mode Styles */
-/* Dark Mode Styles */
 body.dark-mode {
     background-color: #121212; /* Dark background for the body */
     color: #f1f1f1; /* Light text for contrast */
@@ -498,3 +497,60 @@ body.dark-mode main > section button {
     border: 1px solid #555; /* Subtle border for contrast */
 }
 
+/* Portfolio Container in Dark Mode */
+body.dark-mode .portfolio-container {
+    background-color: #1e1e1e; /* Dark background */
+    border: 1px solid #444; /* Subtle border */
+    color: #f1f1f1; /* Light text for readability */
+}
+
+/* Task Container in Dark Mode */
+body.dark-mode .task-container {
+    background-color: #1e1e1e; /* Dark background */
+    border: 1px solid #444; /* Subtle border */
+    color: #f1f1f1; /* Light text */
+}
+
+/* Grade Container in Dark Mode */
+body.dark-mode .grade-container {
+    background-color: #1e1e1e; /* Dark background */
+    border: 1px solid #444; /* Subtle border */
+    color: #f1f1f1; /* Light text */
+}
+
+/* Contact Container in Dark Mode */
+body.dark-mode .contact-container {
+    background-color: #1e1e1e; /* Dark background */
+    border: 1px solid #444; /* Subtle border */
+    color: #f1f1f1; /* Light text */
+}
+
+/* Ensure forms inside containers adopt Dark Mode */
+body.dark-mode .contact-container form input,
+body.dark-mode .contact-container form textarea,
+body.dark-mode .contact-container form button {
+    background-color: #333; /* Dark background for form elements */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid #555; /* Subtle border for contrast */
+}
+
+body.dark-mode .task-container input,
+body.dark-mode .grade-container input {
+    background-color: #333; /* Dark background for inputs */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid #555; /* Subtle border */
+}
+
+body.dark-mode .task-container button,
+body.dark-mode .grade-container button,
+body.dark-mode .portfolio-container button {
+    background-color: #444; /* Dark background for buttons */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid #555; /* Subtle border */
+}
+
+body.dark-mode .task-container button:hover,
+body.dark-mode .grade-container button:hover,
+body.dark-mode .portfolio-container button:hover {
+    background-color: #555; /* Lighter hover effect */
+}
