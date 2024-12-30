@@ -8,39 +8,38 @@
     <script src="script.js" defer></script>
 </head>
 <body>
- <div class="container">
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="organizer.html">Task Organizer</a></li>
-                <li><a href="grades.html">Grade Tracker</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-container">
-        <p id="noProjectsMessage">No projects added yet. Add your first project below!</p>
-    </div>
-    <div class="add-project-form">
-        <label for="projectTitle">Project Title</label>
-        <input type="text" id="projectTitle" placeholder="Project Title">
-        
-        <label for="projectDescription">Project Description</label>
-        <textarea id="projectDescription" placeholder="Project Description"></textarea>
-        
-        <button onclick="addProject()">Add Project</button>
-    </div>
-</section>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="organizer.html">Task Organizer</a></li>
+                    <li><a href="grades.html">Grade Tracker</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="portfolio">
+                <h2>Portfolio</h2>
+                <div class="portfolio-container">
+                    <p id="noProjectsMessage">No projects added yet. Add your first project below!</p>
+                </div>
+                <div class="add-project-form">
+                    <label for="projectTitle">Project Title</label>
+                    <input type="text" id="projectTitle" placeholder="Project Title" aria-label="Project Title">
 
-    </main>
-    <footer>
-        <p>&copy; 2024 Student Portfolio & Organizer</p>
-    </footer>
- </div>    
+                    <label for="projectDescription">Project Description</label>
+                    <textarea id="projectDescription" placeholder="Project Description" aria-label="Project Description"></textarea>
+
+                    <button onclick="addProject()" aria-label="Add Project">Add Project</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Student Portfolio & Organizer</p>
+        </footer>
+    </div>
 </body>
 </html>
