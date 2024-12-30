@@ -5,31 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Organizer - Stay Organized</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> <!-- Add defer to ensure the script runs after HTML -->
+    <script src="script.js" defer></script>
 </head>
 <body>
  <div class="container">
- <header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="organizer.html" class="active">Task Organizer</a></li>
-            <li><a href="grades.html">Grade Tracker</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="organizer.html" class="active">Task Organizer</a></li>
+                <li><a href="grades.html">Grade Tracker</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <section id="organizer">
-    <h2>Task Organizer</h2>
-    <div class="task-container">
-        <input type="text" id="taskInput" placeholder="Enter a new task">
-        <button onclick="addTask()">Add Task</button>
-        <ul id="taskList"></ul>
-    </div>
-</section>
-
+            <h2>Task Organizer</h2>
+            <div class="task-container">
+                <input type="text" id="taskInput" placeholder="Enter a new task" aria-label="Task Input">
+                <button onclick="addTask()" aria-label="Add Task">Add Task</button>
+                <ul id="taskList" class="editable">
+                    <p id="noTasksMessage">No tasks added yet. Start by adding your first task!</p>
+                </ul>
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Student Portfolio & Organizer</p>
