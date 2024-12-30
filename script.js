@@ -143,6 +143,7 @@ function loadProjects() {
 
     const projects = getFromLocalStorage("projects");
 
+    // Clear all existing content in containers
     projectContainers.forEach((container) => (container.innerHTML = ""));
 
     if (projects.length === 0) {
@@ -162,17 +163,21 @@ function loadProjects() {
             const description = document.createElement("p");
             description.textContent = project.description;
 
+            projectDiv.appendChild(title);
+            projectDiv.appendChild(description);
+
+            // Add the Remove button below the content
             if (projectContainers[0].classList.contains("editable")) {
                 const removeButton = document.createElement("button");
                 removeButton.textContent = "Remove";
                 removeButton.onclick = () => removeProject(index);
+                projectDiv.appendChild(removeButton); // Append the button to the projectDiv
             }
 
-            projectDiv.appendChild(title);
-            projectDiv.appendChild(description);
             fragment.appendChild(projectDiv);
         });
 
+        // Append the fragment to each container
         projectContainers.forEach((container) => container.appendChild(fragment.cloneNode(true)));
     }
 }
